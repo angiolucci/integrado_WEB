@@ -163,8 +163,7 @@
 			</form>
                         <article>
                             <p class="text-left">
-                                <% String nome="tEstE"; %>
-                                <strong><%=nome%>, Practical aspects of genetic counseling in breast cancer: Lights and shadows.</strong><br>
+                                <strong>Practical aspects of genetic counseling in breast cancer: Lights and shadows.</strong><br>
                                 In unselected populations, less than 10% of breast cancers are associated with germline mutations in predisposing genes. Breast cancer type 1 and 2 (BRCA1 and BRCA2) susceptibility genes are the most common involved genes and confer a 10-30 times higher risk of developing the disease compared to the general population. A personal or family history suggestive of inherited breast cancer syndrome may be further evaluated to assess the risk of genetic predisposition and
                                 the presence of a genetic mutation. Breast cancer genetic counseling should include a careful risk assessment with associated psychosocial evaluation and support, possible molecular testing, personalized discussion of results. Knowledge of BRCA status can influence individualized cancer risk-reduction strategies. i.e. active surveillance, prophylactic surgery and/or pharmacoprevention.<br><br><br>
                                 <strong>On the quantum principles of cognitive learning.</strong><br>
