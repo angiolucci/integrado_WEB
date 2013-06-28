@@ -6,6 +6,7 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,14 +44,17 @@ public class controleLogin extends HttpServlet {
         
         if(login.equalsIgnoreCase("admin")){
             if(senha.equalsIgnoreCase(login)){
-                
+                sysuser = new SystemUser();
+                sysuser.setLogin(login);
+                sysuser.setType(99);
             }else{
                 // senha inválida
             }
         } else
             if (login.equalsIgnoreCase("mdl_agent")){
                 if(senha.equalsIgnoreCase(login)){
-                    
+                    sysuser.setLogin(login);
+                    sysuser.setType(25);                    
                 }else {
                     // senha inválida
                 }
@@ -59,6 +63,12 @@ public class controleLogin extends HttpServlet {
                 sysuser = daoLg.doLogin(login, senha);
                 session.setAttribute("user", sysuser);
             }
+        
+        if (sysuser != null){
+            //RequestDispatcher rd = request.getRequestDispatcher("src/index.jsp");
+            //rd.forward(request, response);
+            response.sendRedirect("src/index.jsp");
+        }
     }
     /**
      * Returns a short description of the servlet.

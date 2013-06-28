@@ -33,7 +33,7 @@ public class DAOLogin {
             if(rs.next()){
                 sysUser = new SystemUser();
                 sysUser.setLogin(usuario);
-                sysUser.setType(12);
+                sysUser.setType(25);
             }
             
             conn.close();
