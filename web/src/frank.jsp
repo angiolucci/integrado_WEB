@@ -30,43 +30,7 @@
   <body class="container-fluid">
     <section class="row-fluid" id="span12">
         <header class="navbar">
-            <nav class="navbar-inner"> 
-                <div class="container-fluid">
-                    <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a> <a href="index.html" class="brand">PubMed</a>
-                    <nav class="nav-collapse collapse navbar-responsive-collapse">
-                        <ul class="nav">
-                            <li class="active"> <a href="index.html">Página Inicial</a>    </li>
-                            <li>    <a href="#">Consultas </a>    </li>
-                            <li>    <a href="#"> Alteração </a>  </li>
-                            <li class="dropdown">
-                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Cadastro <strong class="caret"></strong></a>
-                                <ul class="dropdown-menu">
-                                    <li>    <a href="registerArticle.html">Artigo Pub Med</a> </li>
-                                    <li>    <a href="registerAuthor.html">Autores</a> </li>
-                                    <li>    <a href="chemicalSubstance.html">Substâncias Químicas</a>   </li>
-                                    <li>    <a href="journal.html">Revista</a>   </li>
-                                    <li>    <a href="journalIssue.html">Edição da Revista</a>   </li>
-                                    <li>    <a href="keyWord.html">Palavras - Chaves</a>   </li>
-                                    <li>    <a href="meshHeading.html">Mesh Heading</a>   </li>
-                                    <li>    <a href="pubType.html">Tipo de Publicação</a>  </li>
-                                </ul>
-                            </li>
-			</ul>
-			<ul class="nav pull-right">
-                            <li>    <a href="logIn.html">Log In</a>   </li>
-                            <li class="divider-vertical">  </li>
-                            <li class="dropdown">
-                                <a data-toggle="dropdown" class="dropdown-toggle" href="logIn.html">Usuário<strong class="caret"></strong></a>
-                                <ul class="dropdown-menu">
-                                    <li>    <a href="#">Configurações</a>  </li>
-                                    <li class="divider">    </li>
-                                    <li>    <a href="#">Log Out</a>  </li>
-				</ul>
-                            </li>
-			</ul>
-                    </nav>
-		</div>
-            </nav>
+              <%@include file="menu.jsp" %>
         </header>
     </section>
       

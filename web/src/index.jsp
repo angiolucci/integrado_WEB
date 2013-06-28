@@ -75,14 +75,14 @@
 		<nav class="span3">
 			<ul class="nav nav-list">
 				<li class="nav-header"> Acesso Rápido </li>
-                                <li class="active"> <a href="index.html">Página Inicial</a>    </li>
-                                <li>    <a href="registerArticle.html">Cadastro de Artigos</a> </li>
-				<li>    <a href="search.html">Consultas</a>    </li>
+                                <li class="active"> <a href="index.jsp">Página Inicial</a>    </li>
+                                <li>    <a href="registerArticle.jsp">Cadastro de Artigos</a> </li>
+				<li>    <a href="search.jsp">Consultas</a>    </li>
 				<li class="nav-header"> Outras Opções </li>
-				<li>    <a href="profile.html">Visualizar Perfil</a> </li>
-				<li>    <a href="settings.html">Configurações </a>    </li>
+				<li>    <a href="profile.jsp">Visualizar Perfil</a> </li>
+				<li>    <a href="settings.jsp">Configurações </a>    </li>
 				<li class="divider">    </li>
-				<li>    <a href="ajuda.html">Ajuda</a>    </li>
+				<li>    <a href="ajuda.jsp">Ajuda</a>    </li>
 			</ul>
 		</nav>
 		<article class="span8">
