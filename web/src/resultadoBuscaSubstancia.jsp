@@ -69,7 +69,8 @@
         </section>
         <script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
-                $('#idTabela').dataTable(
+                $('#idTabela').dataTable.columnFilter()(
+                     
                     {"oLanguage": {
                     "sProcessing": "Aguarde enquanto os dados são carregados ...",
                     "sLengthMenu": "Mostrar _MENU_ registros por pagina",
