@@ -1,30 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Buscar Substâncias Químicas</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="img/favicon.png">
-    <link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
-
-
-
-  
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/scripts.js"></script>
-      
+    <%@include file="chamadaCSS.jsp" %>  
   </head>
   
   
@@ -52,19 +31,14 @@
           <fieldset class="span8">
           <legend>  Busca Substâncias  </legend>
           
-          <form class="form-search">                             
-                <button type="submit" class="btn">Buscar Substância</button> <input type="text" class="input-medium search-query"> 
+          <form class="form-search" action="buscaSubstancia" method="POST">                             
+                <button type="submit" class="btn">Buscar Substância</button> <input type="text" class="input-medium search-query" name="substancia"> 
           </form>
           <form autocomplete="on" class="span8" id="myform">
           
           <table class="table" >
                                  <thead>
-					<tr>
-						<th>
-							Nome da Substância
-                                                </th>
-						
-					</tr>
+                                     <tr>    <th>    Nome da Substância  </th>   </tr>
 				</thead>
 				<tbody>
 					<tr>
@@ -100,19 +74,7 @@
             
          });
       </script>
-                <footer class="row-fluid">
-                    <section class="span12">
-                        <br>
-                        <address> 
-                            <strong>PubMed, Ltda.</strong><br> 
-                            Avenida Gen. Carneiro, 795<br> 
-                            Sorocaba, SP 18043-000<br> 
-                            <abbr title="Phone">Fone:</abbr> 
-                            (19) 9309-5397
-                        </address>
-                    </section> 
-		</footer>
-      
+               <%@ include file="rodape.jsp"%>
     </body>
 </html>
 
