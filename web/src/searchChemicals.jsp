@@ -28,38 +28,14 @@
        <div class="span3">
         </div>
           
-          <fieldset class="span8">
+          <fieldset class="span8" >
           <legend>  Busca Substâncias  </legend>
           
-          <form class="form-search" action="buscaSubstancia" method="POST">                             
+          <form class="form-search" action="../buscaSubstancia" method="get">                             
                 <button type="submit" class="btn">Buscar Substância</button> <input type="text" class="input-medium search-query" name="substancia"> 
           </form>
           <form autocomplete="on" class="span8" id="myform">
           
-          <table class="table" >
-                                 <thead>
-                                     <tr>    <th>    Nome da Substância  </th>   </tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							Benzeno
-						</td>
-                                        </tr>
-                                        <tr>
-						<td>
-                                                        Benzeno-98
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                                <td>
-                                                        Benzeno-(23)
-                                                </td>
-					</tr>
-					
-				</tbody>
-			</table>
-              
             </form>
           
       </fieldset>

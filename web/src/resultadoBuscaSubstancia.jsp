@@ -7,41 +7,90 @@
 <%@page import="model.Substance"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-
-        <title>JSP Page</title>
-        <%@include file="chamadaCSS.jsp" %>  
+        <title>Resultado Substâncias Químicas</title>
+        <%@ include file="chamadaCSS.jsp"%>   
     </head>
-    <body>
-        <h1>Hello World!</h1>
+    
+    <body class="container-fluid">
+        <section class="row-fluid" id="span12">
+            <header class="navbar">
+                <%@include file="menu.jsp" %>
+            </header>
+        </section>
 
-        <%
-            List<Substance> substancia = (List<Substance>) request.getAttribute("listaSubstance");
-            if (substancia.isEmpty()) {
-        %>
-        <h1>Não foram encontrados usuários cadastrados nessa cidade. :(</h1>
-        <% } else {%>
 
-        <table class="table" >
+        <nav>
+            <ul class="breadcrumb">
+                <li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>
+                <li>    <a href="index.html">Consultar</a> <span class="divider">/</span>  </li>
+                <li class="active"> Consultar Substâncias Químicas </li> 
+            </ul>  
+        </nav> 
 
-            <thead>
-                <tr>    <th>    Nome da Substância  </th>   </tr>
-            </thead>
-            <tbody>
-                <%
-                    for (Substance s : substancia) {
-                        out.println("<tr>"
-                                + "<td>" + s.getNameOfSubstance() + "</td>"
-                                + "<tr>");
+        <section class="container-fluid">
+            <article class="row-fluid">
+                <div class="span3">
+                </div>
+
+                <fieldset class="span8" >
+                    <legend>  Busca Substâncias  </legend>
+                    <form autocomplete="on" class="span8" id="myform" >
+                        
+                        <%
+                            List<Substance> substancia = (List<Substance>) request.getAttribute("listaSubstance");
+                            if (substancia.isEmpty()) {
+                        %>
+                        
+                        <h1>Nenhuma substancia foi encontrada. </h1>
+                        
+                        <% } else {%>
+                        
+                        <table class="table" id="idTabela">
+                            <thead>
+                                <tr><th>    Nome da Substância  </th></tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                    for (Substance s : substancia) {
+                                        out.println("<tr>"
+                                                + "<td>" + s.getNameOfSubstance() + "</td>"                                                
+                                                + "</tr>");
+                                    }
+
+                                %>                               
+                            </tbody>
+                        </table>
+                        <% }%>
+                    </form>
+                </fieldset>
+            </article>
+        </section>
+        <script type="text/javascript" charset="utf-8">
+            $(document).ready(function() {
+                $('#idTabela').dataTable(
+                    {"oLanguage": {
+                    "sProcessing": "Aguarde enquanto os dados são carregados ...",
+                    "sLengthMenu": "Mostrar _MENU_ registros por pagina",
+                    "sZeroRecords": "Nenhum registro correspondente ao criterio encontrado",
+                    "sInfoEmtpy": "Exibindo 0 a 0 de 0 registros",
+                    "sInfo": "Exibindo de _START_ a _END_ de _TOTAL_ registros",
+                    "sInfoFiltered": "",
+                    "sSearch": "Procurar",
+                    "oPaginate": {
+                       "sFirst":    "Primeiro",
+                       "sPrevious": "Anterior",
+                       "sNext":     "Próximo",
+                       "sLast":     "Último"
                     }
-                %>
-
-            </tbody>
-        </table>
-        
-        <% }%>
-        
+                }       
+                });  
+            });
+        </script>
         <%@ include file="rodape.jsp"%>
     </body>
 </html>
+
+
+

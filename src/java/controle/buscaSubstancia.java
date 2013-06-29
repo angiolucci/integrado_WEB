@@ -68,7 +68,23 @@ public class buscaSubstancia extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        try{
+        DAOSubstancia daosub = new DAOSubstancia();
+        List<Substance> listaSubstance ;
         
+        String substancia = request.getParameter("substancia");
+        listaSubstance = (List<Substance>) daosub.consultaSubstancia(substancia);
+        
+        request.setAttribute("listaSubstance", listaSubstance);         
+        RequestDispatcher rd = request.getRequestDispatcher("src/resultadoBuscaSubstancia.jsp");
+        //RequestDispatcher rd = request.getRequestDispatcher("src/resultadoBuscaSubstancia.jsp");
+        rd.forward(request, response);
+     
+        }catch (DAOException ex) {        
+            throw new ServletException(ex.getMessage());
+        } catch (SQLException ex) {            
+            throw new ServletException(ex.getMessage());
+        }
     }
 
     /**
@@ -83,25 +99,7 @@ public class buscaSubstancia extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try{
-        DAOSubstancia daosub = new DAOSubstancia();
-        List<Substance> listaSubstance ;
-        
-        String substancia = request.getParameter("substancia");
-        listaSubstance = daosub.consultaSubstancia(substancia);
-        
-        request.setAttribute("listaSubstance", listaSubstance);
-        RequestDispatcher rd = null;
-        rd = request.getRequestDispatcher("/resultadoBuscaSubstancia.jsp");
-        rd.forward(request, response);
-     
-        }catch (DAOException ex) {
-            Logger.getLogger(buscaSubstancia.class.getName()).log(Level.SEVERE, null, ex);
-            throw new ServletException(ex.getMessage());
-        } catch (SQLException ex) {
-            Logger.getLogger(buscaSubstancia.class.getName()).log(Level.SEVERE, null, ex);
-            throw new ServletException(ex.getMessage());
-        }
+       
     }
 
     /**
