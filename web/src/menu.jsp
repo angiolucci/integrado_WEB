@@ -13,7 +13,7 @@
                      <ul class="dropdown-menu">
                          <li>    <a href="registerArticle.jsp">Artigo Pub Med</a> </li>
                          <li>    <a href="journal.jsp">Revista</a>   </li>
-                         <li>    <a href="journaIIssue.jsp">Edição da Revista</a>   </li>
+                         <li>    <a href="journalIssue.jsp">Edição da Revista</a>   </li>
                          <li>    <a href="meshHeading.jsp">Termos Mesh</a>   </li>
                          <li>    <a href="pubType.jsp">Tipo de Publicação</a>  </li>
                      </ul>

@@ -64,6 +64,10 @@
         <servlet-name>controleLogin</servlet-name>
         <servlet-class>controle.controleLogin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>buscaSubstancia</servlet-name>
+        <servlet-class>controle.buscaSubstancia</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>efetuarCadastro</servlet-name>
         <url-pattern>/efetuarCadastro</url-pattern>
@@ -127,6 +131,10 @@
     <servlet-mapping>
         <servlet-name>controleLogin</servlet-name>
         <url-pattern>/controleLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>buscaSubstancia</servlet-name>
+        <url-pattern>/buscaSubstancia</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

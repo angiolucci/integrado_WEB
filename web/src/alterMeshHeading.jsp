@@ -2,29 +2,7 @@
 <html lang="en">
   <head>
     <title>Alterar Termos Mesh</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="img/favicon.png">
-    <link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css"/>
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
-
-
-
-  
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/scripts.js"></script>
-      
+    <%@include file="chamadaCSS.jsp" %>  
   </head>
   
   
@@ -69,50 +47,8 @@
           </form>
       </fieldset>  
       </article>
-    </section>
-    
-      
-      <footer class="row-fluid" id="footer">
-                    <section class="span12">
-                        <br>
-                        <address> 
-                            <strong>PubMed, Ltda.</strong><br> 
-                            Avenida Gen. Carneiro, 795<br> 
-                            Sorocaba, SP 18043-000<br> 
-                            <abbr title="Phone">Fone:</abbr> 
-                            (19) 9309-5397
-                        </address>
-                    </section> 
-		</footer>
-      
-       
-      <script>
-          
-          function PositionFooter() {
-              var $footer = $("#footer"), footerHeight = $footer.height(),
-              footerTop = ($(window).scrollTop() + $(window).height() - footerHeight) + "px";
-
-              if (($(document.body).height() + footerHeight) < $(window).height()) {
-                  $footer.css({ position: "absolute", top: footerTop }); } 
-              else { $footer.css({ position: "static" }); }
-
-              $footer.fadeTo(1000, 0.8);
-          }
-
-          function GerenciarFooter() {
-              $(window).resize(PositionFooter);
-              PositionFooter();
-          }
-
-          $(document).ready(function () {
-              GerenciarFooter();
-
-              //Garante que a função será executada após um postback AJAX
-              prm = Sys.WebForms.PageRequestManager.getInstance();
-              prm.add_endRequest(PositionFooter);
-          });
-      </script>
-    
+    </section>    
+      <%@ include file="rodape.jsp"%>           
     </body>
     
     
