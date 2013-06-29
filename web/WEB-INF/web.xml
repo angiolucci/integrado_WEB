@@ -68,6 +68,10 @@
         <servlet-name>buscaSubstancia</servlet-name>
         <servlet-class>controle.buscaSubstancia</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>buscaAvancada1</servlet-name>
+        <servlet-class>controle.buscaAvancada1</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>efetuarCadastro</servlet-name>
         <url-pattern>/efetuarCadastro</url-pattern>
@@ -135,6 +139,10 @@
     <servlet-mapping>
         <servlet-name>buscaSubstancia</servlet-name>
         <url-pattern>/buscaSubstancia</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>buscaAvancada1</servlet-name>
+        <url-pattern>/buscaAvancada1</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
