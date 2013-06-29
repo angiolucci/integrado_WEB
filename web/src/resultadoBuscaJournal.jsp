@@ -1,15 +1,17 @@
 <%-- 
-    Document   : buscaSubstancia
-    Created on : 29/06/2013, 01:48:27
+    Document   : resultadoBuscaJournal
+    Created on : 29/06/2013, 19:27:57
     Author     : Mercês
 --%>
+
+<%@page import="model.Journal"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Substance"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Resultado Substâncias Químicas</title>
+        <title>Resultado Revistas</title>
         <%@ include file="chamadaCSS.jsp"%>   
     </head>
     
@@ -25,7 +27,7 @@
             <ul class="breadcrumb">
                 <li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>
                 <li>    <a href="index.html">Consultar</a> <span class="divider">/</span>  </li>
-                <li class="active"> Consultar Substâncias Químicas </li> 
+                <li class="active"> Consultar Revistas </li> 
             </ul>  
         </nav> 
 
@@ -35,30 +37,35 @@
                 </div>
 
                 <fieldset class="span8" >
-                    <legend>  Busca Substâncias  </legend>
+                    <legend>  Busca Journal  </legend>
                     <form autocomplete="on" class="span8" id="myform" >
                         
                         <%
-                            List<Substance> substancia = (List<Substance>) request.getAttribute("listaSubstance");
-                            if (substancia.isEmpty()) {
+                            List<Journal> journal = (List<Journal>) request.getAttribute("listaJournal");
+                            if (journal.isEmpty()) {
                         %>
                         
-                        <h1>Nenhuma substancia foi encontrada. </h1>
+                        <h1>Nenhuma autor foi encontrado. </h1>
                         
                         <% } else {%>
                         
                         <table class="table" id="idTabela">
                             <thead>
-                                <tr><th>    Nome da Substância  </th></tr>
+                                <tr>
+                                    <th>    Título do Journal  </th>
+                                    <th>    ISSN  </th>
+                                    <th>    Abreviação ISO  </th>
+                                </tr>
                             </thead>
                             <tbody>
                                 <%
-                                    for (Substance s : substancia) {
+                                    for (Journal j : journal) {
                                         out.println("<tr>"
-                                                + "<td>" + s.getNameOfSubstance() + "</td>"                                                
+                                                + "<td>" + j.getTitle() + "</td>"
+                                                + "<td>" + j.getIssn()+ "</td>"
+                                                + "<td>" + j.getIsoAbreviation() + "</td>"
                                                 + "</tr>");
                                     }
-
                                 %>                               
                             </tbody>
                         </table>
@@ -109,6 +116,3 @@
         <%@ include file="rodape.jsp"%>
     </body>
 </html>
-
-
-
