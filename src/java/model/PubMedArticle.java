@@ -53,7 +53,7 @@ public class PubMedArticle {
     private JournalIssue journalIssue;
     private LinkedList<KeyWord> keywords;
     private LinkedList<MeshHeading> meshTerms;
-
+    private String journal;
     /**
      * @return the articleID
      */
@@ -187,6 +187,13 @@ public class PubMedArticle {
      */
     public void setJournalIssue(JournalIssue journalIssue) {
         this.journalIssue = journalIssue;
+    }
+
+    /**
+     * @param journalIssue the journalIssue to set
+     */
+    public void setJournal(String journal) {
+        this.journal = journal;
     }
 
     /**
