@@ -30,7 +30,7 @@
           <fieldset class="span8">
           <legend>  Busca Edição da Revista </legend>
           
-          <form class="form-search" method="GET" action="../buscaEdicao">                             
+          <form class="form-search" method="GET" action="buscaEdicao">                             
                 <button type="submit" class="btn">Buscar Edição </button> <input type="text" class="input-medium search-query" name="jissue" > 
           </form>
           <form autocomplete="on" class="span8" id="myform">

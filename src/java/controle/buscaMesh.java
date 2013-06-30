@@ -23,6 +23,13 @@ import persistence.DAOMesh;
  */
 public class buscaMesh extends HttpServlet {
 
+    
+    private static final String[] MONTH = new String[] {
+      "January","Febuary","March","April","May","June",
+      "July","August","September","October","November","December"
+    };
+    
+    
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -67,18 +74,18 @@ public class buscaMesh extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-         try{
-        DAOMesh daomesh = new DAOMesh();
-        List<MeshHeading> listaMesh ;
-        
-        String mesh = request.getParameter("mesh");
-        listaMesh = (List<MeshHeading>) daomesh.consultaMeshHeading(mesh);
-        
-        request.setAttribute("listaMesh", listaMesh);         
-        RequestDispatcher rd = request.getRequestDispatcher("src/resultadoBuscaMesh.jsp");
-        //RequestDispatcher rd = request.getRequestDispatcher("src/resultadoBuscaSubstancia.jsp");
-        rd.forward(request, response);
-     
+        try{
+            DAOMesh daomesh = new DAOMesh();
+            List<MeshHeading> listaMesh ;
+
+            String mesh = request.getParameter("mesh");
+            listaMesh = (List<MeshHeading>) daomesh.consultaMeshHeading(mesh);
+
+            request.setAttribute("listaMesh", listaMesh);         
+            RequestDispatcher rd = request.getRequestDispatcher("resultadoBuscaMesh.jsp");
+            //RequestDispatcher rd = request.getRequestDispatcher("src/resultadoBuscaSubstancia.jsp");
+            rd.forward(request, response);
+             
         }catch (DAOException ex) {        
             throw new ServletException(ex.getMessage());
         } catch (SQLException ex) {            
@@ -99,7 +106,7 @@ public class buscaMesh extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
 
     /**

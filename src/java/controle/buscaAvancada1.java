@@ -38,7 +38,7 @@ public class buscaAvancada1 extends HttpServlet {
         }
         
         RequestDispatcher rd = null;
-        rd = request.getRequestDispatcher("/advancedSearch1.jsp");
+        rd = request.getRequestDispatcher("advancedSearch1.jsp");
         rd.forward(request, response);
     }
 }

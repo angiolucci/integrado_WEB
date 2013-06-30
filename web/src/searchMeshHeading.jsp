@@ -31,7 +31,7 @@
           <fieldset class="span8">
           <legend>  Buscar Termos Mesh </legend>
           
-          <form class="form-search" method="GET" action="../buscaMesh">                             
+          <form class="form-search" method="GET" action="buscaMesh">                             
                 <button type="submit" class="btn">Buscar Termo</button> <input type="text" class="input-medium search-query" name="mesh"> 
           </form>
           <form autocomplete="on" class="span8" id="myform">                        

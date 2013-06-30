@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <title>Publication Type</title>
-    <%@include file="chamadaCSS.jsp" %>  
+    <%@include file="chamadaCSS.jsp" %>
+    
   </head>
   
   
@@ -31,7 +32,7 @@
                 <legend>
                     Cadastro Tipo de Publicação
                 </legend>
-                <p><span class="text-left"><label for="pubtype">Tipo de Publicação <span id="erropubtype" class="text-error"></span></label></span><span><input type="text" id="pubtype"></span></p>
+                <p><span class="text-left"><label for="pubtype">Tipo de Publicação <span id="erropubtype" class="text-error"></span></label></span><span><input type="search" id="pubtype"></span></p>
                 <!--<p><span class="text-center"></span><span id="desc-erro"></span><span id="erro"></span></p>-->
                 <p><input type="submit" id="cadastrar" value="Cadastrar !" class="btn"></p>
             </fieldset>
@@ -72,6 +73,18 @@
                             });
                         }
               });
+              
+              
+              var alCities = ['Baltimore', 'Boston', 'New York', 'Tampa Bay', 
+                      'Toronto', 'Chicago', 'Cleveland', 'Detroit', 'Kansas City', 
+                      'Minnesota', 'Los Angeles', 'Oakland', 'Seattle', 'Texas'].sort();
+              $('#pubtype').typeahead(
+                  {
+                    source: alCities, 
+                    items:5
+                  }
+              );
+              
          });
       </script>
       

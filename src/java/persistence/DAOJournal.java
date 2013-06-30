@@ -30,13 +30,13 @@ public class DAOJournal {
         PreparedStatement ps;
         
         /*Consulta parametrizada por uma procedure*/
-        //ps = conn.prepareStatement("EXEC usp_buscajournal ?");
-        //ps.setString(1, journ);        
+        ps = conn.prepareStatement("EXEC usp_buscajournal ?");
+        ps.setString(1, journ);        
         ResultSet rs;        
         
         /*Consulta sem a procedure*/
-        String sql = "SELECT * FROM JOURNAL WHERE JOURNAL.TITLE LIKE '"+journ+"%'";
-        ps = conn.prepareStatement(sql);
+        /*String sql = "SELECT * FROM JOURNAL WHERE JOURNAL.TITLE LIKE '"+journ+"%'";
+        ps = conn.prepareStatement(sql);*/
         rs = ps.executeQuery();                
         while(rs.next()){
             Journal j = new Journal();            

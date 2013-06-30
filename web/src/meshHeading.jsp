@@ -1,3 +1,6 @@
+<%@page import="model.MeshHeading"%>
+<%@page import="java.util.List"%>
+<%@page import="controle.buscaMesh"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,7 +29,7 @@
       <article class="row-fluid">
         <div class="span4">
         </div>
-          <form autocomplete="on" class="span4">
+          <form autocomplete="on" class="span4" action="" method="get">
             <fieldset>
                 <legend>
                     Cadastro Mesh Termos
@@ -38,8 +41,10 @@
         </form>
       </article>
     </section>
-      
+        
        
+        
+        
       <script>
           
           $(document).ready(function(){
@@ -68,7 +73,9 @@
                                 $(this).html('');
                             });
                         }
-              });
+              });                                       
+
+  
          });
       </script>
                <%@ include file="rodape.jsp"%>

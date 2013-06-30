@@ -78,8 +78,8 @@ public class buscaEdicao extends HttpServlet {
         String journalIssue = request.getParameter("jissue");
         listaJournalIssue = (List<JournalIssue>) daoji.consultaJournalIssue(journalIssue);
         
-        request.setAttribute("listaSubstance", listaJournalIssue);         
-        RequestDispatcher rd = request.getRequestDispatcher("src/resultadoBuscaJournalIssue.jsp");
+        request.setAttribute("listaJournalIssue", listaJournalIssue);         
+        RequestDispatcher rd = request.getRequestDispatcher("resultadoBuscaJournalIssue.jsp");
         //RequestDispatcher rd = request.getRequestDispatcher("src/resultadoBuscaSubstancia.jsp");
         rd.forward(request, response);
      

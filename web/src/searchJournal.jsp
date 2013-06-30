@@ -28,7 +28,7 @@
                 <fieldset class="span8">
                     <legend>  Busca Revistas  </legend>
 
-                    <form class="form-search" method="GET" action="../buscaRevista">                             
+                    <form class="form-search" method="GET" action="buscaRevista">                             
                         <button type="submit" class="btn">Buscar Revista</button> <input type="text" class="input-medium search-query" name="journal"> 
                     </form>
                     <form autocomplete="on" class="span8" id="myform">

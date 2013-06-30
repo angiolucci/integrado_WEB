@@ -195,7 +195,7 @@
                             });
                             document.getElementById("cadastrar").style.visibility="visible";
                         }
-              });
+              });            
 
             $('#forename').focusout(function(){
                 var filtro = /^([A-Za-z ]{1,100})$/;

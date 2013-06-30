@@ -36,7 +36,7 @@
 
                 <fieldset class="span8" >
                     <legend>  Busca Substâncias  </legend>
-                    <form autocomplete="on" class="span8" id="myform" >
+                    <form autocomplete="on" class="span10" id="myform" >
                         
                         <%
                             List<Substance> substancia = (List<Substance>) request.getAttribute("listaSubstance");
@@ -69,38 +69,30 @@
         </section>
         <script type="text/javascript" charset="utf-8">
             $(document).ready(function() {
-                $('#idTabela').dataTable.columnFilter()({
-                        sPlaceHolder: "head:before",
-			aoColumns: 
-                        [ 
-                            //{ type: "select", values: [ 'Gecko', 'Trident', 'KHTML', 'Misc', 'Presto', 'Webkit', 'Tasman']  },
-                            { type: "text" }
-                            //null,
-                            //{ type: "number" },
-                            //{ type: "select" }
-			]
-                });
+                
                 
                 $('#idTabela').dataTable({
                     
-                    "sPaginationType": full_numbers, 
-                    "bPaginate": true,
-                    "bJQueryUI": false,
-                    "oLanguage": {
+                    "sPaginationType": "full_numbers",
+					"bPaginate": true,
+					"bJQueryUI": false,
+					"iDisplayLenght" : 10,
+					
+					"oLanguage": {
                         "sProcessing":   "Processando...",
                         "sLengthMenu":   "Mostrar _MENU_ registros",
                         "sZeroRecords":  "N&atilde;o foram encontrados resultados",
                 	"sInfo":    "Mostrando de _START_ at&eacute; _END_ de _TOTAL_ registros",
                         "sInfoEmpty":    "Mostrando de 0 at&eacute; 0 de 0 registros",
                         "sInfoFiltered": "(filtrado de _MAX_ registros no total)",
-                        "sInfoPostFix":  "",
+                        "sInfoPostFix":  "  ",
                         "sSearch":       "Buscar:",
                         "sUrl":          "",
                         "oPaginate": {
-                            "sFirst":    "Primeiro",
-                            "sPrevious": "Anterior",
-                            "sNext":     "Seguinte",
-                            "sLast":     "&Uacute;ltimo"
+                            "sFirst":    "    Primeiro    ",
+                            "sPrevious": "    Anterior    ",
+                            "sNext":     "    Seguinte    ",
+                            "sLast":     "    &Uacute;ltimo   "
                         }                                                                              
                      }
                  });

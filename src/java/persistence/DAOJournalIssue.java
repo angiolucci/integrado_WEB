@@ -26,34 +26,38 @@ public class DAOJournalIssue {
     }
     
     public List<JournalIssue> consultaJournalIssue(String journalissue) throws SQLException{
+        
         List<JournalIssue> listaJournalIssue = new ArrayList<JournalIssue>();
         PreparedStatement ps;
         
         /*Consulta parametrizada por uma procedure*/
-        //ps = conn.prepareStatement("EXEC usp_buscajournalissue ?");
-        //ps.setString(1, journalissue);        
+        ps = conn.prepareStatement("EXEC usp_buscajournalissue ?");
+        ps.setString(1, journalissue);        
         ResultSet rs;        
                         
         /*Consulta sem a procedure*/
-        String sql = "SELECT  JOURNAL.TITLE, JOURNALISSUE.ISSUE, JOURNALISSUE.ISSN, JOURNALISSUE.VOLUME"
-                + "FROM JOURNALISSUE, JOURNAL WHERE (JOURNAL.ISSN = JOURNAILISSUE.ISSN) AND  "
-                + "(JOURNAL.TITLE LIKE '"+journalissue+"%')";
+        /*String sql = "SELECT  J.TITLE, JI.ISSUE, JI.ISSN, JI.VOLUME "
+                + " FROM JOURNALISSUE JI, JOURNAL J WHERE "
+                + " (J.ISSN = JI.ISSN) AND (JI.ISSUE = "+journalissue+")";
+        */
         
-        
-        ps = conn.prepareStatement(sql);
-        rs = ps.executeQuery();                
+        //ps = conn.prepareStatement(sql);
+        rs = ps.executeQuery();  
+        int i,v;
         while(rs.next()){
             JournalIssue ji = new JournalIssue();  
             Journal j = new Journal();
             
             j.setTitle(rs.getString("TITLE"));            
             ji.setJournal(j);
-            ji.setIssue(Integer.parseInt(rs.getString("ISSUE")));
+            i = Integer.parseInt(rs.getString("ISSUE"));
+            ji.setIssue(i);
             ji.setIssn(rs.getString("ISSN"));
             
             //Poderiamos recuperar a data de publicacao do Journal
             //ji.setPubDate(rs.);
-            ji.setVolume(Integer.parseInt(rs.getString("VOLUME")));
+            v = Integer.parseInt(rs.getString("VOLUME"));
+            ji.setVolume(v);
             
             listaJournalIssue.add(ji);            
         }

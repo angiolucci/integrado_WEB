@@ -30,13 +30,13 @@ public class DAOMesh {
         PreparedStatement ps;
         
         /*Consulta parametrizada por uma procedure*/
-        //ps = conn.prepareStatement("EXEC usp_buscatermosmesh ?");
-        //ps.setString(1, mesh);        
+        ps = conn.prepareStatement("EXEC usp_buscamesh ?");
+        ps.setString(1, mesh);        
         ResultSet rs;        
         
         /*Consulta sem a procedure*/
-        String sql = "SELECT * FROM MESHHEADING WHERE MESHHEADING.DESCRIPTION LIKE '"+mesh+"%'";
-        ps = conn.prepareStatement(sql);
+        //String sql = "SELECT * FROM MESHHEADING WHERE MESHHEADING.DESCRIPTION LIKE '"+mesh+"%'";
+        //ps = conn.prepareStatement(sql);
         rs = ps.executeQuery();                
         while(rs.next()){
             MeshHeading m = new MeshHeading();            

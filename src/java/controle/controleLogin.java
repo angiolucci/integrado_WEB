@@ -67,7 +67,7 @@ public class controleLogin extends HttpServlet {
         if (sysuser != null){
             //RequestDispatcher rd = request.getRequestDispatcher("src/index.jsp");
             //rd.forward(request, response);
-            response.sendRedirect("src/index.jsp");
+            response.sendRedirect("index.jsp");
         }
     }
     /**

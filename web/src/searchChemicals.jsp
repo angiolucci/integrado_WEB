@@ -31,7 +31,7 @@
           <fieldset class="span8" >
           <legend>  Busca Substâncias  </legend>
           
-          <form class="form-search" action="../buscaSubstancia" method="get">                             
+          <form class="form-search" action="buscaSubstancia" method="get">                             
                 <button type="submit" class="btn">Buscar Substância</button> <input type="text" class="input-medium search-query" name="substancia"> 
           </form>
           <form autocomplete="on" class="span8" id="myform">

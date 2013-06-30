@@ -76,9 +76,13 @@
         <servlet-name>buscaMesh</servlet-name>
         <servlet-class>controle.buscaMesh</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AjaxRequest</servlet-name>
+        <servlet-class>controle.AjaxRequest</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>efetuarCadastro</servlet-name>
-        <url-pattern>/efetuarCadastro</url-pattern>
+        <url-pattern>/src/efetuarCadastro</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Injector</servlet-name>
@@ -118,39 +122,43 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>buscaPtype</servlet-name>
-        <url-pattern>/buscaPtype</url-pattern>
+        <url-pattern>/src/buscaPtype</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>buscaRevista</servlet-name>
-        <url-pattern>/buscaRevista</url-pattern>
+        <url-pattern>/src/buscaRevista</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>buscaEdicao</servlet-name>
-        <url-pattern>/buscaEdicao</url-pattern>
+        <url-pattern>/src/buscaEdicao</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>buscaVolume</servlet-name>
-        <url-pattern>/buscaVolume</url-pattern>
+        <url-pattern>/src/buscaVolume</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>cadastrarArtigo</servlet-name>
-        <url-pattern>/cadastrarArtigo</url-pattern>
+        <url-pattern>/src/cadastrarArtigo</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>controleLogin</servlet-name>
-        <url-pattern>/controleLogin</url-pattern>
+        <url-pattern>/src/controleLogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>buscaSubstancia</servlet-name>
-        <url-pattern>/buscaSubstancia</url-pattern>
+        <url-pattern>/src/buscaSubstancia</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>buscaAvancada1</servlet-name>
-        <url-pattern>/buscaAvancada1</url-pattern>
+        <url-pattern>/src/buscaAvancada1</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>buscaMesh</servlet-name>
-        <url-pattern>/buscaMesh</url-pattern>
+        <url-pattern>/src/buscaMesh</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjaxRequest</servlet-name>
+        <url-pattern>/src/AjaxRequest</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

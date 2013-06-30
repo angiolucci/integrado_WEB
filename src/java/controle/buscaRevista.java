@@ -78,9 +78,10 @@ public class buscaRevista extends HttpServlet {
         String journal = request.getParameter("journal");
         listaJournal = (List<Journal>) daojour.consultaJournal(journal);
         
-        request.setAttribute("listaSubstance", listaJournal);         
-        RequestDispatcher rd = request.getRequestDispatcher("src/resultadoBuscaJournal.jsp");        
+        request.setAttribute("listaJournal", listaJournal);         
+        RequestDispatcher rd = request.getRequestDispatcher("resultadoBuscaJournal.jsp");        
         rd.forward(request, response);     
+        
         }catch (DAOException ex) {        
             throw new ServletException(ex.getMessage());
         } catch (SQLException ex) {            

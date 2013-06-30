@@ -76,7 +76,7 @@ public class buscaSubstancia extends HttpServlet {
         listaSubstance = (List<Substance>) daosub.consultaSubstancia(substancia);
         
         request.setAttribute("listaSubstance", listaSubstance);         
-        RequestDispatcher rd = request.getRequestDispatcher("src/resultadoBuscaSubstancia.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("resultadoBuscaSubstancia.jsp");
         //RequestDispatcher rd = request.getRequestDispatcher("src/resultadoBuscaSubstancia.jsp");
         rd.forward(request, response);
      

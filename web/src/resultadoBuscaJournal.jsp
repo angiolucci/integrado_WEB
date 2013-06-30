@@ -1,13 +1,12 @@
 <%-- 
     Document   : resultadoBuscaJournal
     Created on : 29/06/2013, 19:27:57
-    Author     : MercÃªs
+    Author     : Mercês
 --%>
 
 <%@page import="model.Journal"%>
 <%@page import="java.util.List"%>
-<%@page import="model.Substance"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,7 +24,7 @@
 
         <nav>
             <ul class="breadcrumb">
-                <li>    <a href="index.html">PÃ¡gina Inicial</a> <span class="divider">/</span> </li>
+                <li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>
                 <li>    <a href="index.html">Consultar</a> <span class="divider">/</span>  </li>
                 <li class="active"> Consultar Revistas </li> 
             </ul>  
@@ -52,9 +51,9 @@
                         <table class="table" id="idTabela">
                             <thead>
                                 <tr>
-                                    <th>    TÃ­tulo do Journal  </th>
+                                    <th>    Título do Journal  </th>
                                     <th>    ISSN  </th>
-                                    <th>    AbreviaÃ§Ã£o ISO  </th>
+                                    <th>    Abreviação ISO  </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -75,39 +74,29 @@
             </article>
         </section>
         <script type="text/javascript" charset="utf-8">
-            $(document).ready(function() {
-                $('#idTabela').dataTable.columnFilter()({
-                        sPlaceHolder: "head:before",
-			aoColumns: 
-                        [ 
-                            //{ type: "select", values: [ 'Gecko', 'Trident', 'KHTML', 'Misc', 'Presto', 'Webkit', 'Tasman']  },
-                            { type: "text" }
-                            //null,
-                            //{ type: "number" },
-                            //{ type: "select" }
-			]
-                });
+            $(document).ready(function() {              
                 
                 $('#idTabela').dataTable({
-                    
-                    "sPaginationType": full_numbers, 
-                    "bPaginate": true,
-                    "bJQueryUI": false,
-                    "oLanguage": {
+                    "sPaginationType": "full_numbers",
+					"bPaginate": true,
+					"bJQueryUI": false,
+					"iDisplayLenght" : 10,
+					
+					"oLanguage": {
                         "sProcessing":   "Processando...",
                         "sLengthMenu":   "Mostrar _MENU_ registros",
                         "sZeroRecords":  "N&atilde;o foram encontrados resultados",
                 	"sInfo":    "Mostrando de _START_ at&eacute; _END_ de _TOTAL_ registros",
                         "sInfoEmpty":    "Mostrando de 0 at&eacute; 0 de 0 registros",
                         "sInfoFiltered": "(filtrado de _MAX_ registros no total)",
-                        "sInfoPostFix":  "",
+                        "sInfoPostFix":  "  ",
                         "sSearch":       "Buscar:",
                         "sUrl":          "",
                         "oPaginate": {
-                            "sFirst":    "Primeiro",
-                            "sPrevious": "Anterior",
-                            "sNext":     "Seguinte",
-                            "sLast":     "&Uacute;ltimo"
+                            "sFirst":    "    Primeiro    ",
+                            "sPrevious": "    Anterior    ",
+                            "sNext":     "    Seguinte    ",
+                            "sLast":     "    &Uacute;ltimo   "
                         }                                                                              
                      }
                  });
