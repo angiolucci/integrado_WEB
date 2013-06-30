@@ -31,54 +31,16 @@
           <fieldset class="span8">
           <legend>  Buscar Termos Mesh </legend>
           
-          <form class="form-search">                             
-                <button type="submit" class="btn">Buscar Termo</button> <input type="text" class="input-medium search-query"> 
+          <form class="form-search" method="GET" action="../buscaMesh">                             
+                <button type="submit" class="btn">Buscar Termo</button> <input type="text" class="input-medium search-query" name="mesh"> 
           </form>
-          <form autocomplete="on" class="span8" id="myform">
+          <form autocomplete="on" class="span8" id="myform">                        
           
-          <table class="table" >
-                                 <thead>
-					<tr>
-						<th>
-							Termos Mesh
-                                                </th>
-						
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							16S
-						</td>
-                                        </tr>
-                                        <tr>
-						<td>
-                                                        18S
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                                <td>
-                                                        28S
-                                                </td>
-					</tr>
-					
-				</tbody>
-			</table>
-              
-            </form>
+          </form>
           
       </fieldset>
       </article>
-    </section>
-      
-       
-      <script>
-          
-          $(document).ready(function(){
-              
-            
-         });
-      </script>
+    </section>                   
                 <%@ include file="rodape.jsp"%>
       
     </body>
