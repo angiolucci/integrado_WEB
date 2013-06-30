@@ -12,8 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
+import model.Journal;
+import persistence.DAOException;
+import persistence.DAOJournal;
 
 
 /**
@@ -65,7 +70,24 @@ public class buscaRevista extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        try{
+        DAOJournal daojour = new DAOJournal();
+        List<Journal> listaJournal ;
+        
+        String journal = request.getParameter("journal");
+        listaJournal = (List<Journal>) daojour.consultaJournal(journal);
+        
+        request.setAttribute("listaSubstance", listaJournal);         
+        RequestDispatcher rd = request.getRequestDispatcher("src/resultadoBuscaJournal.jsp");        
+        rd.forward(request, response);     
+        }catch (DAOException ex) {        
+            throw new ServletException(ex.getMessage());
+        } catch (SQLException ex) {            
+            throw new ServletException(ex.getMessage());
+        }
+        
+        
     }
 
     /**

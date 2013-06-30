@@ -30,89 +30,12 @@
           <fieldset class="span8">
           <legend>  Busca Edição da Revista </legend>
           
-          <form class="form-search">                             
-                <button type="submit" class="btn">Buscar Edição </button> <input type="text" class="input-medium search-query"> 
+          <form class="form-search" method="GET" action="../buscaEdicao">                             
+                <button type="submit" class="btn">Buscar Edição </button> <input type="text" class="input-medium search-query" name="jissue" > 
           </form>
           <form autocomplete="on" class="span8" id="myform">
           
-          <table class="table" >
-                                 <thead>
-					<tr>
-						<th>
-							Issue
-                                                </th>
-                                                <th>
-							Volume
-                                                </th>
-                                                <th>
-							ISSN
-                                                </th>
-                                                <th>
-							Date
-                                                </th>
-                                                <th>
-							CitedMedium
-                                                </th>
-						
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							32
-						</td>
-                                                <td>
-							234
-						</td>
-                                                <td>
-							3213-3243
-						</td>
-                                                <td>
-							13/04/1987
-						</td>
-                                                <td>
-							Print
-						</td>
-                                        </tr>
-                                        <tr>
-						<td>
-							32
-						</td>
-                                                <td>
-							2332
-						</td>
-                                                <td>
-							3343-3243
-						</td>
-                                                <td>
-							13/04/1923
-						</td>
-                                                <td>
-							Internet
-						</td>
-                                        </tr>
-                                        <tr>
-						<td>
-							32
-						</td>
-                                                <td>
-							2
-						</td>
-                                                <td>
-							3209-892X
-						</td>
-                                                <td>
-							23/12/1823
-						</td>
-                                                <td>
-							Print
-						</td>
-                                        </tr>
-					
-				</tbody>
-			</table>
-              
-            </form>
+          </form>
           
       </fieldset>
           

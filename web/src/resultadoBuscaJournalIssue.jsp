@@ -1,17 +1,16 @@
 <%-- 
-    Document   : resultadoBuscaJournal
-    Created on : 29/06/2013, 19:27:57
-    Author     : MercÃªs
+    Document   : resultadoBuscaJournalIssue
+    Created on : 29/06/2013, 20:50:00
+    Author     : Mercês
 --%>
 
 <%@page import="model.Journal"%>
+<%@page import="model.JournalIssue"%>
 <%@page import="java.util.List"%>
-<%@page import="model.Substance"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@page import="java.util.List"%>
 <html lang="en">
     <head>
-        <title>Resultado Revistas</title>
+        <title>Resultado Substâncias Químicas</title>
         <%@ include file="chamadaCSS.jsp"%>   
     </head>
     
@@ -25,9 +24,9 @@
 
         <nav>
             <ul class="breadcrumb">
-                <li>    <a href="index.html">PÃ¡gina Inicial</a> <span class="divider">/</span> </li>
+                <li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>
                 <li>    <a href="index.html">Consultar</a> <span class="divider">/</span>  </li>
-                <li class="active"> Consultar Revistas </li> 
+                <li class="active"> Consultar Journal Issue </li> 
             </ul>  
         </nav> 
 
@@ -37,35 +36,42 @@
                 </div>
 
                 <fieldset class="span8" >
-                    <legend>  Busca Journal  </legend>
+                    <legend>  Busca Journal Issue  </legend>
                     <form autocomplete="on" class="span8" id="myform" >
                         
                         <%
-                            List<Journal> journal = (List<Journal>) request.getAttribute("listaJournal");
-                            if (journal.isEmpty()) {
+                            List<JournalIssue> jissue = (List<JournalIssue>) request.getAttribute("listaJournalIssue");
+                            Journal j = new Journal();
+                            if (jissue.isEmpty()) {
                         %>
                         
-                        <h1>Nenhum Journal foi encontrado. </h1>
+                        <h1>Nenhum Journal Issue foi encontrado. </h1>
                         
                         <% } else {%>
                         
                         <table class="table" id="idTabela">
                             <thead>
                                 <tr>
-                                    <th>    TÃ­tulo do Journal  </th>
-                                    <th>    ISSN  </th>
-                                    <th>    AbreviaÃ§Ã£o ISO  </th>
+                                    <th>Título do Journal</th>
+                                    <th>Edição</th>
+                                    <th>ISSN</th>
+                                    <th>Volume</th>
+                                    <!-- <th>Data de Publicação</th> -->
                                 </tr>
                             </thead>
                             <tbody>
                                 <%
-                                    for (Journal j : journal) {
+                                    for (JournalIssue ji : jissue) {
+                                        j = ji.getJournal();
                                         out.println("<tr>"
-                                                + "<td>" + j.getTitle() + "</td>"
-                                                + "<td>" + j.getIssn()+ "</td>"
-                                                + "<td>" + j.getIsoAbreviation() + "</td>"
+                                                + "<td>" + j.getTitle() + "</td>"                                                
+                                                + "<td>" + ji.getIssue() + "</td>"                                                
+                                                + "<td>" + ji.getIssn() + "</td>"                                                
+                                                + "<td>" + ji.getVolume() + "</td>"                                                
+                                                //+ "<td>" + ji.getPubDate() + "</td>"                                                
                                                 + "</tr>");
                                     }
+
                                 %>                               
                             </tbody>
                         </table>
@@ -116,3 +122,7 @@
         <%@ include file="rodape.jsp"%>
     </body>
 </html>
+
+
+
+

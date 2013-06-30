@@ -95,6 +95,10 @@ public class JournalIssue {
         System.out.println(this.pubDate.toString());
     }
 
+    public void setIssue(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     private class SimpleDate{
         private Integer year;
         private Integer month;
@@ -164,4 +168,13 @@ public class JournalIssue {
     private SimpleDate pubDate;
     private String citedMedium;
     private Journal journal;
+
+    public String getIssn() {
+        return issn;
+    }
+
+    public void setIssn(String issn) {
+        this.issn = issn;
+    }
+    private String issn;
 }
