@@ -103,6 +103,11 @@ public class PubMedArticle {
         return title;
     }
 
+       /**
+     * @return the title
+     */
+    
+    
     /**
      * @param title the title to set
      */
@@ -189,12 +194,7 @@ public class PubMedArticle {
         this.journalIssue = journalIssue;
     }
 
-    /**
-     * @param journalIssue the journalIssue to set
-     */
-    public void setJournal(String journal) {
-        this.journal = journal;
-    }
+  
 
     /**
      * @return the keywords
@@ -237,4 +237,12 @@ public class PubMedArticle {
     public void setNumberOfPages(Integer numberOfPages) {
         this.numberOfPages = numberOfPages;
     }    
+
+    public String getJournal() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setJournal(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

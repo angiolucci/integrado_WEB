@@ -65,6 +65,10 @@
         <servlet-class>controle.controleLogin</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>buscaArtigo</servlet-name>
+        <servlet-class>controle.buscaArtigo</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>buscaSubstancia</servlet-name>
         <servlet-class>controle.buscaSubstancia</servlet-class>
     </servlet>
@@ -83,6 +87,10 @@
     <servlet-mapping>
         <servlet-name>efetuarCadastro</servlet-name>
         <url-pattern>/src/efetuarCadastro</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>buscaArtigo</servlet-name>
+        <url-pattern>/src/buscaArtigo</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Injector</servlet-name>

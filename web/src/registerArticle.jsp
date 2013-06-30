@@ -107,6 +107,8 @@
                    </span>
                 </p>
                 <p><span class="text-left"><label for="keyword">Palavra-Chave <span id="errokey" class="text-error"></span></label></span><span><input type="text" id="keyword"></span></p>
+                 
+
                 <p><span class="text-left"><label for="title">Title <span id="errotitle" class="text-error"></span></label></span><span><input type="text" id="title" name="title"></span></p>
                 <p><span class="text-left"><label for="pagbegin">Pag. Begin <span id="errobegin" class="text-error"></span></label></span><span><input type="text" id="pagbegin" name="pagbegin"></span></p>
                 <p><span class="text-left"><label for="pagend">Pag. End <span id="erroend" class="text-error"></span></label></span><span><input type="text" id="pagend" name="pagend"></span></p>
