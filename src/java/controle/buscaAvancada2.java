@@ -22,11 +22,24 @@ public class buscaAvancada2 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String mesh = request.getParameter("mesh_term");
-        int qtde = Integer.parseInt(request.getParameter("qtde"));
+            
         try {
-            busca(request, response, mesh, qtde);
+        DAOBuscaAvancada2 ba = new DAOBuscaAvancada2();
+            
+        String mesh = request.getParameter("mesh_term");
+        String qtde = request.getParameter("qtde");
+        
+        List<BuscaAvancada2> lista = (List<BuscaAvancada2>) ba.consultaAvancada2(mesh, qtde);
+        
+        
+        RequestDispatcher rd = null;
+        
+        request.setAttribute("resulBA", lista);
+        
+        rd = request.getRequestDispatcher("viewAdvancedSearch2.jsp");
+        rd.forward(request, response);
+
+            
         } catch (DAOException ex) {
             Logger.getLogger(buscaAvancada2.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -36,18 +49,12 @@ public class buscaAvancada2 extends HttpServlet {
             throws ServletException, IOException, DAOException {
 
         try {
-            DAOBuscaAvancada2 ba = new DAOBuscaAvancada2();
-            List<BuscaAvancada2> lista = (List<BuscaAvancada2>) ba.consultaAvancada2(mesh, qtde);
             
             //List<BuscaAvancada2> lista = new ArrayList<BuscaAvancada2>() ;
-            request.setAttribute("resulBA", lista);
+
         } catch (Exception sqle) {
             request.setAttribute("resulBA", null);
         }
         
-        RequestDispatcher rd = null;
-        rd = request.getRequestDispatcher("viewAdvancedSearch2.jsp");
-        rd.forward(request, response);
-
     }
 }

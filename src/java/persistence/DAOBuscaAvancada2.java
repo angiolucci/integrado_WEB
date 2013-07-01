@@ -15,7 +15,7 @@ import model.BuscaAvancada2;
  */
 public class DAOBuscaAvancada2 {
 
-    public List<BuscaAvancada2> consultaAvancada2(String mesh, int qtde) throws DAOException {
+    public List<BuscaAvancada2> consultaAvancada2(String mesh, String qtde) throws DAOException {
         List<BuscaAvancada2> listaBA = new ArrayList<BuscaAvancada2>();
 
         Connection conn = null;
@@ -28,14 +28,14 @@ public class DAOBuscaAvancada2 {
             sqlStm = conn.createStatement();
 
             ps = conn.prepareStatement("EXEC usp_consulta2 ?,?");
-            ps.setInt(1, qtde);
+            ps.setString(1, qtde);
             ps.setString(2, mesh);
 
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                String meshTerm = rs.getString(1); // mesh
-                int quantidade = rs.getInt(2); // quantidade
+                String meshTerm = rs.getString("title"); // mesh
+                int quantidade = Integer.parseInt(rs.getString("total")); // quantidade
                 listaBA.add(new BuscaAvancada2(meshTerm,quantidade));
             }
             conn.close();

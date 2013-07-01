@@ -40,7 +40,7 @@
 
                     <%
                         List<BuscaAvancada2> lista = (List<BuscaAvancada2>) request.getAttribute("resulBA");
-                        if (lista.size() == 0) {
+                        if (lista.isEmpty()) {
 
                     %>
                     <h2> Nenhum resultado encontrado para esses parâmetros. </h2>

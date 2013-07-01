@@ -31,7 +31,7 @@
                     <legend>  Busca Avançada  </legend>
 
                     <form class="form-search" method="post" id="busca_avancada_3" name="busca_avancada_3" action="buscaAvancada3">                             
-                        Tipo <input type="text" id="tipo" name="tipo" class="input-medium search-query">
+                        Ignorar tipo <input type="text" id="tipo" name="tipo" class="input-medium search-query">
                         MeshTerm <input type="text" id="mesh_term" name="mesh_term" class="input-medium search-query">
                         Substância Quimica <input type="text" id="substancia" name="substancia" class="input-medium search-query">
                         <button type="submit" class="btn">Buscar</button> 

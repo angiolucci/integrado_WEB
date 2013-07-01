@@ -62,6 +62,15 @@
                      </ul>
                  </li>	
                 <% } %>
+             <li class="dropdown">
+                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Buscas avançadas <strong class="caret"></strong></a>
+                     <ul class="dropdown-menu">
+                         <li>    <a href="advancedSearch1.jsp">Busca por MeshTerms e Substâncias Químicas</a> </li>
+                        <li>    <a href="advancedSearch2.jsp">Busca avançada por MeshTerms</a> </li>
+                        <li>    <a href="advancedSearch3.jsp">MeshTerms, exclusão de tipo e Subs. Químicas</a> </li>
+                        <li>    <a href="advancedSearch4.jsp">Consulta Avançada por Quantidade de MeshTerms</a> </li>
+                     </ul>
+                 </li>	
               </ul>
              <ul class="nav pull-right">
 

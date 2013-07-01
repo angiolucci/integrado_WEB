@@ -23,7 +23,7 @@ public class buscaAvancada4 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int qtde = Integer.parseInt(request.getParameter("qtde"));
+        String qtde = request.getParameter("qtde");
 
         try {
             busca(request, response, qtde);
@@ -32,7 +32,7 @@ public class buscaAvancada4 extends HttpServlet {
         }
     }
 
-    private void busca(HttpServletRequest request, HttpServletResponse response, int qtde)
+    private void busca(HttpServletRequest request, HttpServletResponse response, String qtde)
             throws ServletException, IOException, DAOException {
 
         try {
