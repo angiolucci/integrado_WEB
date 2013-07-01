@@ -13,39 +13,43 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.BuscaAvancada1;
-import persistence.DAOBuscaAvancada1;
+import model.BuscaAvancada3;
+import persistence.DAOBuscaAvancada3;
 import persistence.DAOException;
 
-public class buscaAvancada1 extends HttpServlet {
+public class buscaAvancada3 extends HttpServlet {
 
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
+        String tipo = request.getParameter("tipo");
         String mesh = request.getParameter("mesh_term");
         String subs = request.getParameter("substancia");
         try {
-            busca(request, response, mesh, subs);
+            busca(request, response, tipo, mesh, subs);
         } catch (DAOException ex) {
             Logger.getLogger(buscaAvancada1.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
 
-    private void busca(HttpServletRequest request, HttpServletResponse response, String mesh, String subs)
+    }
+    
+      private void busca(HttpServletRequest request, HttpServletResponse response, String tipo, String mesh, String subs)
             throws ServletException, IOException, DAOException {
 
         try {
-            DAOBuscaAvancada1 ba = new DAOBuscaAvancada1();
-            List<BuscaAvancada1> lista = (List<BuscaAvancada1>) ba.consultaAvancada1(mesh, subs) ;
+            DAOBuscaAvancada3 ba = new DAOBuscaAvancada3();
+            List<BuscaAvancada3> lista = (List<BuscaAvancada3>) ba.consultaAvancada3(tipo, mesh, subs) ;
             request.setAttribute("resulBA", lista);
         } catch (Exception sqle) {
             request.setAttribute("resulBA", null);
         }
         
         RequestDispatcher rd = null;
-        rd = request.getRequestDispatcher("viewAdvancedSearch1.jsp");
+        rd = request.getRequestDispatcher("viewAdvancedSearch3.jsp");
         rd.forward(request, response);
 
     }
+
 }

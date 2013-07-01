@@ -13,38 +13,40 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.BuscaAvancada1;
-import persistence.DAOBuscaAvancada1;
+import model.BuscaAvancada2;
+import persistence.DAOBuscaAvancada2;
 import persistence.DAOException;
 
-public class buscaAvancada1 extends HttpServlet {
+public class buscaAvancada2 extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String mesh = request.getParameter("mesh_term");
-        String subs = request.getParameter("substancia");
+        int qtde = Integer.parseInt(request.getParameter("qtde"));
         try {
-            busca(request, response, mesh, subs);
+            busca(request, response, mesh, qtde);
         } catch (DAOException ex) {
-            Logger.getLogger(buscaAvancada1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(buscaAvancada2.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    private void busca(HttpServletRequest request, HttpServletResponse response, String mesh, String subs)
+    private void busca(HttpServletRequest request, HttpServletResponse response, String mesh, int qtde)
             throws ServletException, IOException, DAOException {
 
         try {
-            DAOBuscaAvancada1 ba = new DAOBuscaAvancada1();
-            List<BuscaAvancada1> lista = (List<BuscaAvancada1>) ba.consultaAvancada1(mesh, subs) ;
+            DAOBuscaAvancada2 ba = new DAOBuscaAvancada2();
+            List<BuscaAvancada2> lista = (List<BuscaAvancada2>) ba.consultaAvancada2(mesh, qtde);
+            
+            //List<BuscaAvancada2> lista = new ArrayList<BuscaAvancada2>() ;
             request.setAttribute("resulBA", lista);
         } catch (Exception sqle) {
             request.setAttribute("resulBA", null);
         }
         
         RequestDispatcher rd = null;
-        rd = request.getRequestDispatcher("viewAdvancedSearch1.jsp");
+        rd = request.getRequestDispatcher("viewAdvancedSearch2.jsp");
         rd.forward(request, response);
 
     }

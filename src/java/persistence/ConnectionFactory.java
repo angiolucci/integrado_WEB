@@ -15,11 +15,11 @@ import java.sql.ResultSet;
  */
 public class ConnectionFactory {
     //private static String server = "localhost:1433";
-    //private static String server = "192.168.12.4:1433";
-    private static String server = "192.168.12.239:1433";
-    private static String dataBase = "master";
-    private static String userDb = "sa";
-    private static String passDb = "admin";
+    //private static String server = "192.168.12.239:1433";
+    private static String server = "shelton.sor.ufscar.br:1433";
+    private static String dataBase = "labbd06";
+    private static String userDb = "labbd06";
+    private static String passDb = "@masterkey@";
     
     public static Connection getConnection() throws DAOException {
         try {
