@@ -32,13 +32,10 @@ public class DAOPubType {
         /*Consulta parametrizada por uma procedure*/
         //ps = conn.prepareStatement("EXEC usp_addpubtype ?");
         //ps.setString(1, subs);        
-        ResultSet rs;        
         
         /*Consulta sem a procedure*/
         String sql = "INSERT INTO PUBTYPE VALUE '"+pub+"'";
-        ps = conn.prepareStatement(sql);
-                        
-        
+        ps = conn.prepareStatement(sql);                        
         return ps.executeUpdate(sql);
     }
     

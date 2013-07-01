@@ -35,7 +35,7 @@ public class controleLogin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = null;
+        HttpSession session = request.getSession();
         SystemUser sysuser = null;
       
         //response.setCharacterEncoding("UTF-8");
@@ -47,27 +47,30 @@ public class controleLogin extends HttpServlet {
                 sysuser = new SystemUser();
                 sysuser.setLogin(login);
                 sysuser.setType(99);
-            }else{
-                // senha inválida
+                request.getSession().setAttribute("user", sysuser);
             }
         } else
             if (login.equalsIgnoreCase("mdl_agent")){
                 if(senha.equalsIgnoreCase(login)){
-                    sysuser.setLogin(login);
-                    sysuser.setType(25);                    
-                }else {
-                    // senha inválida
+                sysuser = new SystemUser();
+                sysuser.setLogin(login);
+                sysuser.setType(25);
+                request.getSession().setAttribute("user", sysuser);                 
                 }
             } else {
                 DAOLogin daoLg = new DAOLogin();
                 sysuser = daoLg.doLogin(login, senha);
+                if (sysuser != null)
+                    sysuser.setType(50);
+                
                 session.setAttribute("user", sysuser);
             }
         
-        if (sysuser != null){
-            //RequestDispatcher rd = request.getRequestDispatcher("src/index.jsp");
-            //rd.forward(request, response);
-            response.sendRedirect("index.jsp");
+        if ((SystemUser)session.getAttribute("user") != null){
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
+        } else {
+            response.sendRedirect("logIn.jsp");
         }
     }
     /**

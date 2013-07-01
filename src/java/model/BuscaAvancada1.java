@@ -42,3 +42,4 @@ public class BuscaAvancada1 {
     private String mesh; // meshTerm
     private String subs; // substancia quimica
 }
+    

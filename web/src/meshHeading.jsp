@@ -19,8 +19,8 @@
          
     <nav>
     <ul class="breadcrumb">
-	<li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>
-        <li>    <a href="meshHeading.html">Cadastro Mesh-Termos</a> <span class="divider">/</span>  </li>
+	<li>    <a href="index.jsp">Página Inicial</a> <span class="divider">/</span> </li>
+        <li>    <a href="meshHeading.jsp">Cadastro Mesh-Termos</a> <span class="divider">/</span>  </li>
 	<li class="active"> Mesh-Termos</li> 
     </ul>  
     </nav> 

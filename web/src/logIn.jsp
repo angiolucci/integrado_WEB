@@ -26,29 +26,30 @@
       <article class="row-fluid">
         <div class="span4">
         </div>
-          <form autocomplete="on" class="span4" action="../controleLogin" method="POST">
+          <form autocomplete="on" class="span4" action="controleLogin" method="POST">
             <fieldset>
                 <legend>
                     Log In
                 </legend>
                 
                 <div class="control-group">
-                    <label class="control-label" for="inputEmail">Email</label>
+                    <label class="control-label" for="inputEmail">Login</label>
                     <div class="controls">
-                        <input type="text" id="inputEmail" name="login"/>
+                        <input type="text" id="inputEmail" name="login" placeholder="Nome de usuário"/>
                     </div>
                 </div>
             
 		<div class="control-group">
                     <label class="control-label" for="inputPassword">Senha</label>
                     <div class="controls">
-                        <input type="password" id="inputPassword" name="senha"/>
+                        <input type="password" id="inputPassword" name="senha" placeholder="Insira sua senha"/>
                     </div>
 		</div>
             
                 <div class="control-group">
                     <div class="controls">
-                        <button type="POST" class="btn">Entrar</button> <a href="cadastrarUsuario.jsp">Registrar-se</a>
+                        <button type="submit" class="btn">Entrar</button>
+                        <a href="cadastrarUsuario.jsp">Registrar-se</a>
                     </div>
                 </div>
                 

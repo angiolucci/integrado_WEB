@@ -15,8 +15,8 @@
     
     <nav>
     <ul class="breadcrumb">
-	<li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>
-        <li>    <a href="keyWord.html">Cadastro Palavras-Chaves</a> <span class="divider">/</span>  </li>
+	<li>    <a href="index.jsp">Página Inicial</a> <span class="divider">/</span> </li>
+        <li>    <a href="keyWord.jsp">Cadastro Palavras-Chaves</a> <span class="divider">/</span>  </li>
 	<li class="active"> Palavras - Chaves</li> 
     </ul>  
     </nav>

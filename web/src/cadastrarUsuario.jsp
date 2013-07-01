@@ -14,8 +14,8 @@
     </section>
     <nav>  
     <ul class="breadcrumb">
-	<li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>
-        <li>    <a href="keyWord.html">Usuário - Cadastrar Usuário</a> <span class="divider">/</span>  </li>
+	<li>    <a href="index.jsp">Página Inicial</a> <span class="divider">/</span> </li>
+        <li>    <a href="index.jsp">Usuário - Cadastrar Usuário</a> <span class="divider">/</span>  </li>
 	<li class="active"> Cadastrar Usuário</li> 
     </ul>    
     </nav>  

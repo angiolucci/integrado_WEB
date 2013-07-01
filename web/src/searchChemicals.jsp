@@ -17,8 +17,8 @@
          
     <nav>
     <ul class="breadcrumb">
-	<li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>
-        <li>    <a href="index.html">Consultar</a> <span class="divider">/</span>  </li>
+	<li>    <a href="index.jsp">Página Inicial</a> <span class="divider">/</span> </li>
+        <li>    <a href="index.jsp">Consultar</a> <span class="divider">/</span>  </li>
 	<li class="active"> Consultar Substâncias Químicas </li> 
     </ul>  
     </nav> 

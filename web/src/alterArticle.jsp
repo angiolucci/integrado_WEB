@@ -16,8 +16,8 @@
          
     <nav>
     <ul class="breadcrumb">
-	<li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>
-        <li>    <a href="index.html">Alterar</a> <span class="divider">/</span>  </li>
+	<li>    <a href="index.jsp">Página Inicial</a> <span class="divider">/</span> </li>
+        <li>    <a href="index.jsp">Alterar</a> <span class="divider">/</span>  </li>
 	<li class="active"> Alterar Artigo </li> 
     </ul>  
     </nav> 

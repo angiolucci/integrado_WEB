@@ -16,8 +16,8 @@
          
     <nav>
     <ul class="breadcrumb">
-	<li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>
-        <li>    <a href="index.html">Deletar</a> <span class="divider">/</span>  </li>
+	<li>    <a href="index.jsp">Página Inicial</a> <span class="divider">/</span> </li>
+        <li>    <a href="index.jsp">Deletar</a> <span class="divider">/</span>  </li>
 	<li class="active"> Deletar Artigos </li> 
     </ul>  
     </nav> 

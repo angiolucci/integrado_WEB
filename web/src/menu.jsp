@@ -1,58 +1,71 @@
 
+<%@page import="model.SystemUser"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%! static HttpSession menuSession; 
+    static SystemUser menuUser;
+    static int userType;
+%>
 <!DOCTYPE html>
+<%
+    menuSession = request.getSession(false);
+    String userLogin = "NOT_LOGGED";
+    userType = 0;
+    
+    if(menuSession != null){
+        menuUser = (SystemUser)menuSession.getAttribute("user");
+        if(menuUser != null){
+            userLogin = menuUser.getLogin();
+            userType = menuUser.getType();
+        }
+    }
+%>
 <nav class="navbar-inner"> 
  <div class="container-fluid">
      <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a> <a class="brand">PubMed</a>
      <nav class="nav-collapse collapse navbar-responsive-collapse">
-             <ul class="nav">
-                 <li class="active"> <a href="index.jsp">Página Inicial</a>    </li>
-
-                 <li class="dropdown">
-                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Cadastro <strong class="caret"></strong></a>
+        <ul class="nav">
+                 <% if( userType >= 50){ %>
+                <li class="dropdown">
+                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Meus Artigos <strong class="caret"></strong></a>
                      <ul class="dropdown-menu">
-                         <li>    <a href="registerArticle.jsp">Artigo Pub Med</a> </li>
-                         <li>    <a href="journal.jsp">Revista</a>   </li>
-                         <li>    <a href="journalIssue.jsp">Edição da Revista</a>   </li>
-                         <li>    <a href="meshHeading.jsp">Termos Mesh</a>   </li>
-                         <li>    <a href="pubType.jsp">Tipo de Publicação</a>  </li>
+                         <li>    <a href="registerArticle.jsp">Incuir</a> </li>
+                         <li>    <a href="alterArticle.jsp">Alterar</a>   </li>
+                         <li>    <a href="searchArticle.jsp">Remover</a>   </li>
+                         <li>    <a href="deleteRegisterArticle.jsp">consultar</a>   </li>                                   
                      </ul>
                  </li>
-
-                 <li class="dropdown">
-                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Alterar <strong class="caret"></strong></a>
+            <% } %>
+				 
+				
+                <% if( (userType == 25) || (userType == 99)){ %>
+               <li class="dropdown">
+                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Termos Mesh <strong class="caret"></strong></a>
                      <ul class="dropdown-menu">
-                         <li>    <a href="alterArticle.jsp">Artigo Pub Med</a> </li>
-                         <li>    <a href="alterJournal.jsp">Revista</a>   </li>
-                         <li>    <a href="alterjournalIssue.jsp">Edição da Revista</a>   </li>
-                         <li>    <a href="alterMeshHeading.jsp">Termos Mesh</a>   </li>                                   
+                         <li>    <a href="meshHeading.jsp">Incuir</a> </li>
+                         <li>    <a href="alterMeshHeading.jsp">Alterar</a>   </li>
+                         <li>    <a href="deleteMeshHeading.jsp">Remover</a>   </li>
+                         <li>    <a href="searchMeshHeading.jsp">consultar</a>   </li>                                   
                      </ul>
                  </li>
-
+								 
                  <li class="dropdown">
-                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Consultar <strong class="caret"></strong></a>
+                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Publicações <strong class="caret"></strong></a>
                      <ul class="dropdown-menu">
-                         <li>    <a href="searchArticle.jsp">Artigo Pub Med</a> </li>
-                         <li>    <a href="searchJournal.jsp">Revista</a>   </li>
-                         <li>    <a href="searchJournalIssue.jsp">Edição da Revista</a>   </li>
-                         <li>    <a href="searchMeshHeading.jsp">Termos Mesh</a>   </li>                                   
-                         <li>    <a href="searchChemicals.jsp">Substâncias Químicas</a>   </li>
-
+                         <li>    <a href="journal.jsp">Incuir Publicação</a> </li>
+						 <li>    <a href="alterJournal.jsp">Alterar Publicação </a> </li>
+						 <li>    <a href="searchJournal.jsp">Consultar Publicação</a>   </li>
+						 <li>    <a href="deleteJournal.jsp">Remover Publicação</a>   </li>						 
+                         <li>    <a href="journalIssue.jsp">Incluir Edição </a> </li>
+						 <li>    <a href="alterjournalIssue.jsp">Alterar Edição</a>   </li>
+                         <li>    <a href="searchJournalIssue.jsp">Consultar Edição</a>   </li>
+                         <li>    <a href="deleteJournalIssue.jsp">Remover Edição</a>   </li>                        
                      </ul>
-                 </li>
-
-                 <li class="dropdown">
-                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Excluir <strong class="caret"></strong></a>
-                     <ul class="dropdown-menu">
-                         <li>    <a href="deleteRegisterArticle.jsp">Artigo Pub Med</a> </li>
-                         <li>    <a href="deleteJournal.jsp">Revista</a>   </li>
-                         <li>    <a href="deleteJournalIssue.jsp">Edição da Revista</a>   </li>
-                         <li>    <a href="deleteMeshHeading.jsp">Termos Mesh</a>   </li>                                   
-                     </ul>
-                 </li>
-
-             </ul>
+                 </li>	
+                <% } %>
+              </ul>
              <ul class="nav pull-right">
+
+                 <% if(userLogin.equals("NOT_LOGGED")){ %>
 
                  <li class="dropdown">
                      <a data-toggle="dropdown" class="dropdown-toggle" href="#">Log In <strong class="caret"></strong></a>
@@ -60,16 +73,19 @@
                      <li>    <a href="logIn.jsp"> Entrar </a>    </li>
                      <li>    <a href="cadastrarUsuario.jsp"> Crie uma conta</a>    </li>                                   
                  </ul>
-                 <li class="divider-vertical">  </li>
+                 </li>
+
+                 <% }else { %>
                  <li class="dropdown">
-                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Usuário <strong class="caret"></strong></a>
+                     <a data-toggle="dropdown" class="dropdown-toggle" href="#"><%= userLogin %> <strong class="caret"></strong></a>
                      <ul class="dropdown-menu">
                          <li>    <a href="settings.jsp">Configurações</a>  </li>
                          <li>    <a href="ajuda.jsp">Ajuda</a>  </li>
                          <li class="divider">    </li>                                    
-                         <li>    <a href="#">Log Out</a>  </li>
+                         <li>    <a href="logout.jsp">Log Out</a>  </li>
                      </ul>
                  </li>
+                 <% } %>
              </ul>
       </nav>
  </div>

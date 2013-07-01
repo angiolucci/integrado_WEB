@@ -11,9 +11,11 @@ import java.sql.Statement;
 import model.PubMedArticle;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Author;
+import model.Journal;
 /**
  *
  * @author renato
@@ -24,7 +26,9 @@ public class DAOPubMedArticle {
       ResultSet rs = null;
       String titulo;
 
-
+    public DAOPubMedArticle() throws DAOException{
+        this.conn = ConnectionFactory.getConnection();    
+    }
       
       
       
@@ -69,7 +73,7 @@ public void inserirArtigo(String articleID,String lastname,String forename,
 
     
     try{
-            conn = ConnectionFactory.getConnection();
+            
             sqlStm = conn.createStatement();
             
             PreparedStatement cs = conn.prepareStatement("EXEC usp_insereArticle ?,?,?,?,?,?,?,?");
@@ -90,34 +94,26 @@ public void inserirArtigo(String articleID,String lastname,String forename,
 }        
       
       
-public List<PubMedArticle> consultaArticle(String titulo){
-      List<PubMedArticle> pub = new ArrayList<PubMedArticle>();
-      
-       try {
-            conn = ConnectionFactory.getConnection();
-            sqlStm = conn.createStatement();
+public List<PubMedArticle> consultaArticle(String titulo) throws DAOException, SQLException{
             
-            PreparedStatement cs = conn.prepareStatement("EXEC usp_buscarapida ?");
-            cs.setString(1, titulo);
+            List<PubMedArticle> pub = new ArrayList<PubMedArticle>();
+            PreparedStatement ps;
+            
+            ps = conn.prepareStatement("EXEC usp_buscamesh ?");
+            ps.setString(1, titulo);
 
-
-            ResultSet rs = cs.executeQuery();
+            ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
-            PubMedArticle pumed = new PubMedArticle();
-            pumed.setTitle(rs.getString("title"));
-            pumed.setJournal(rs.getString("journal"));
-            pumed.setArticleID(rs.getInt("articleid"));
-            pub.add(pumed); 
+                PubMedArticle pumed = new PubMedArticle();
+                Journal j = new Journal();
+                pumed.setTitle(rs.getString("title"));
+                pumed.setJournal(j);
+                pumed.setArticleID(Integer.parseInt(rs.getString("ARTICLEID")));
+                pub.add(pumed); 
             }
-            conn.close();
-            
-       } catch(Exception ex){
-           System.out.println("errrro");
-           ex.printStackTrace();
-       }
-    
-    return pub;
+
+            return pub;
 }
 
 

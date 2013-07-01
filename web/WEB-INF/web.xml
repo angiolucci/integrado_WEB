@@ -7,7 +7,7 @@
     <servlet>
         <servlet-name>Injector</servlet-name>
         <servlet-class>dbconnect.Injector</servlet-class>
-    </servlet>
+    </servlet>                  
     <servlet>
         <servlet-name>Author</servlet-name>
         <servlet-class>relational.Author</servlet-class>
@@ -81,8 +81,8 @@
         <servlet-class>controle.buscaMesh</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AjaxRequest</servlet-name>
-        <servlet-class>controle.AjaxRequest</servlet-class>
+        <servlet-name>cadastrarPubtype</servlet-name>
+        <servlet-class>controle.cadastrarPubtype</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>efetuarCadastro</servlet-name>
@@ -164,9 +164,11 @@
         <servlet-name>buscaMesh</servlet-name>
         <url-pattern>/src/buscaMesh</url-pattern>
     </servlet-mapping>
+    
+    
     <servlet-mapping>
-        <servlet-name>AjaxRequest</servlet-name>
-        <url-pattern>/src/AjaxRequest</url-pattern>
+        <servlet-name>cadastrarPubtype</servlet-name>
+        <url-pattern>/src/cadastrarPubtype</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

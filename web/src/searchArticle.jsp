@@ -16,8 +16,8 @@
          
     <nav>
     <ul class="breadcrumb">
-	<li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>
-        <li>    <a href="index.html">Consultar</a> <span class="divider">/</span>  </li>
+	<li>    <a href="index.jsp">Página Inicial</a> <span class="divider">/</span> </li>
+        <li>    <a href="index.jsp">Consultar</a> <span class="divider">/</span>  </li>
 	<li class="active"> Consultar Artigo </li> 
     </ul>  
     </nav> 
@@ -30,166 +30,12 @@
           <fieldset class="span8">
           <legend>  Buscar do Artigo  </legend>
           
-          <form class="form-search">                             
-                <button type="submit" class="btn">Buscar Título</button> <input type="text" class="input-medium search-query"> 
+          <form class="form-search" method="POST" action="buscaArtigo">                             
+                <button type="submit" class="btn">Buscar Título</button> <input type="text" class="input-medium search-query" id="title" name="title"> 
           </form>
           <form autocomplete="on" class="span8" id="myform">
           
-          <table class="table" >
-                                 <thead>
-					<tr>
-						<th>
-							Article ID
-						</th>
-						<th>
-							Issue
-						</th>
-						<th>
-							ISSN
-						</th>
-						<th>
-							Volume
-						</th>
-                                                <th>
-							Afiliação
-						</th>
-                                                <th>
-							Status
-						</th>
-                                                <th>
-							Título
-						</th>
-                                                
-                                                <th>
-							Página Inicial
-						</th>
-                                                <th>
-							Página Final
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>
-							12345678
-						</td>
-						<td>
-							12
-						</td>
-						<td>
-                                                        0943-9384
-						</td>
-						<td>
-							100
-						</td>
-                                                <td>
-							UFSCar Sorocaba
-						</td>
-                                                <td>
-							eppublish
-						</td>
-                                                <td>
-							Compiladores
-						</td>
-                                                <td>
-							12
-						</td>
-                                                <td>
-							21434
-						</td>
-					</tr>
-					<tr class="success">
-						<td>
-							12232678
-						</td>
-						<td>
-							32
-						</td>
-						<td>
-							1234-2343
-						</td>
-						<td>
-							43
-						</td>
-                                                <td>
-							USP São Carlos
-						</td>
-                                                <td>
-							eppublish
-						</td>
-                                                <td>
-							Compiladores
-						</td>
-                                                <td>
-							34
-						</td>
-                                                <td>
-							435
-						</td>
-					</tr>
-					<tr class="error">
-						<td>
-							12232623
-						</td>
-						<td>
-							23
-                                                </td>
-						<td>
-							1234-2323
-						</td>
-						<td>
-							434
-						</td>
-                                                <td>
-							Unicamp
-						</td>
-                                                <td>
-							eppublish
-						</td>
-                                                <td>
-							Compiladores
-						</td>
-                                                <td>
-							12
-						</td>
-                                                <td>
-							34
-						</td>
-                                                
-					</tr>
-					<tr class="warning">
-						<td>
-							135432623
-						</td>
-						<td>
-							2323
-						</td>
-						<td>
-							2324-2323
-						</td>
-						<td>
-							2
-						</td>
-                                                <td>
-							UFPE
-						</td>
-                                                <td>
-							ppublish
-						</td>
-                                                <td>
-							Compiladores
-						</td>
-                                                <td>
-							321
-						</td>
-                                                <td>
-							4324
-						</td>
-					</tr>
-					
-				</tbody>
-			</table>
-              
+                 
             </form>
           
       </fieldset>
@@ -201,6 +47,7 @@
       <script>
           
           $(document).ready(function(){
+              
               
             
          });

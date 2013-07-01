@@ -16,8 +16,8 @@
       
     <nav>  
     <ul class="breadcrumb">
-	<li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>
-        <li>    <a href="journalIssue.html">Cadastro Edição da Revista</a> <span class="divider">/</span>  </li>
+	<li>    <a href="index.jsp">Página Inicial</a> <span class="divider">/</span> </li>
+        <li>    <a href="journalIssue.jsp">Cadastro Edição da Revista</a> <span class="divider">/</span>  </li>
 	<li class="active"> Edição da Revista </li> 
     </ul>    
     </nav>  

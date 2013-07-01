@@ -17,6 +17,7 @@ import java.util.*;
 import javax.servlet.RequestDispatcher;
 import model.Author;
 import persistence.DAOAuthor;
+import persistence.DAOException;
 /**
  *
  * @author renato
@@ -71,9 +72,9 @@ public class buscaArtigo extends HttpServlet {
         
             response.setCharacterEncoding("UTF-8");
             
-            
-           String Artigos =" ";
-            DAOPubMedArticle DAOartigo = new DAOPubMedArticle();
+           
+           //String Artigos =" ";
+           /* DAOPubMedArticle DAOartigo = new DAOPubMedArticle();
             List<PubMedArticle> listaArtigos;
             String title = request.getParameter("ttl");
             listaArtigos = DAOartigo.consultaArticle(title);
@@ -99,12 +100,12 @@ public class buscaArtigo extends HttpServlet {
             
             }
             
+            */
             
             
             
-           /* 
             String title = request.getParameter("ttl");
-            String Artigo = null;
+            String Artigo = null ;
             if( title.equals("a")){
               Artigo = "<tr> <td> teste1 </td> </tr>";
               Artigo += "<tr> <td> teste1 </td> </tr>";
@@ -253,11 +254,11 @@ public class buscaArtigo extends HttpServlet {
                 Artigo += "<tr> <td> asghajsgaj </td> </tr>";
                 Artigo += "<tr> <td> asghajsgaj </td> </tr>"; 
             }
-        */
+        
             
            // System.out.println(Artigo);
             PrintWriter writer = response.getWriter();
-            writer.print(Artigos);
+            writer.print(Artigo);
             writer.close();
             
     }
@@ -272,8 +273,25 @@ public class buscaArtigo extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
              
+        try {
+            DAOPubMedArticle daoart = new DAOPubMedArticle();
+            List<PubMedArticle> listaArtigo;
+
+            String title = request.getParameter("title");
+            listaArtigo = (List<PubMedArticle>) daoart.consultaArticle(title);
+
+            request.setAttribute("listaArtigo", listaArtigo);
+            RequestDispatcher rd = request.getRequestDispatcher("resultadoBuscaArtigo.jsp");
+            //RequestDispatcher rd = request.getRequestDispatcher("src/resultadoBuscaSubstancia.jsp");
+            rd.forward(request, response);
+
+        } catch (DAOException ex) {
+            throw new ServletException(ex.getMessage());
+        } catch (SQLException ex) {
+            throw new ServletException(ex.getMessage());
+        }
         
     }
 

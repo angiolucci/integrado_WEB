@@ -36,18 +36,6 @@
                         <button type="submit" class="btn">Buscar</button> 
                     </form>
                     
-                    <form autocomplete="on" class="span8" id="myform">
-                        <table class="table" >
-                            <thead>
-                                <tr>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </form>
                 </fieldset>
             </article>
 
@@ -56,10 +44,6 @@
 
         <script>
           
-            $(document).ready(function(){
-              
-            
-            });
         </script>
         <%@ include file="rodape.jsp"%>
 

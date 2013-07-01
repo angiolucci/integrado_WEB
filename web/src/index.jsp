@@ -55,11 +55,18 @@
 			<ul class="nav nav-list">
 				<li class="nav-header"> Acesso Rápido </li>
                                 <li class="active"> <a href="index.jsp">Página Inicial</a>    </li>
-                                <li>    <a href="registerArticle.jsp">Cadastro de Artigos</a> </li>
-				<li>    <a href="search.jsp">Consultas</a>    </li>
+                                <% if (userType != 25) { %>
+                                    <% if( (userType >= 50) ){ %>
+                                    <li>    <a href="registerArticle.jsp">
+                                    <% }else { %>
+                                    <li>    <a href="logIn.jsp">
+                                    <% } %>
+                                    Cadastro de Artigos</a> </li>
+                                <% } %>
 				<li class="nav-header"> Outras Opções </li>
+                                <% if( userType != 0){ %>
 				<li>    <a href="profile.jsp">Visualizar Perfil</a> </li>
-				<li>    <a href="settings.jsp">Configurações </a>    </li>
+                                <% } %>
 				<li class="divider">    </li>
 				<li>    <a href="ajuda.jsp">Ajuda</a>    </li>
 			</ul>

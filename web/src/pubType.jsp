@@ -16,8 +16,8 @@
       
     <nav>
     <ul class="breadcrumb">
-	<li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>
-        <li>    <a href="pubType.html">Cadastro Tipo de Publicação</a> <span class="divider">/</span>  </li>
+	<li>    <a href="index.jsp">Página Inicial</a> <span class="divider">/</span> </li>
+        <li>    <a href="pubType.jsp">Cadastro Tipo de Publicação</a> <span class="divider">/</span>  </li>
 	<li class="active"> Tipo de Publicação</li> 
     </ul>  
     </nav>
@@ -27,7 +27,7 @@
       <article class="row-fluid">
         <div class="span4">
         </div>
-          <form autocomplete="on" class="span4">
+          <form autocomplete="on" class="span4" method="get" action="cadastrarPubtype">
             <fieldset>
                 <legend>
                     Cadastro Tipo de Publicação
@@ -49,10 +49,10 @@
           $(document).ready(function(){
               
             /*monitora a ação de clicar*/
-            $('#cadastrar').click(function(){
+            /*$('#cadastrar').click(function(){
                 window.alert('Cadastro efetuado com sucesso!');
             });
-            
+            */
             
             $('#pubtype').focusout(function(){
                 var filtro = /^([A-Za-z.,:-]{1,100})$/;

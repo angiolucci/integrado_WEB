@@ -53,7 +53,15 @@ public class PubMedArticle {
     private JournalIssue journalIssue;
     private LinkedList<KeyWord> keywords;
     private LinkedList<MeshHeading> meshTerms;
-    private String journal;
+
+    public Journal getJournal() {
+        return journal;
+    }
+
+    public void setJournal(Journal journal) {
+        this.journal = journal;
+    }
+    private Journal journal;
     /**
      * @return the articleID
      */
@@ -238,11 +246,5 @@ public class PubMedArticle {
         this.numberOfPages = numberOfPages;
     }    
 
-    public String getJournal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setJournal(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }

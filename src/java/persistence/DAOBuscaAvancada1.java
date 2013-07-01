@@ -34,9 +34,9 @@ public class DAOBuscaAvancada1 {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                String title = rs.getString("title");
-                String meshTerm = rs.getString("MESH");
-                String substance = rs.getString("SUBSTANCE");
+                String title = rs.getString(1);// title
+                String meshTerm = rs.getString(2); // "MESH"
+                String substance = rs.getString(3); // "SUBSTANCE"
 
                 listaBA.add(new BuscaAvancada1(title, meshTerm, substance));
             }
@@ -53,3 +53,4 @@ public class DAOBuscaAvancada1 {
 
     }
 }
+    
