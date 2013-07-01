@@ -42,8 +42,7 @@
           <legend>  Busca do Artigo  </legend>
           <form autocomplete="on" class="span8" id="myform">
           <%
-                            List<PubMedArticle> art = (List<PubMedArticle>) request.getAttribute("listaArtigo");
-                            Journal j = new Journal();
+                            List<PubMedArticle> art = (List<PubMedArticle>) request.getAttribute("listaArtigo");                            
                             if (art.isEmpty()) {
            %>
           <h1>Nenhum Artigo foi encontrado. </h1>
@@ -56,7 +55,7 @@
                                  <thead>
 					<tr>
                                                 <th>Título</th>
-                                                <th>Journal ISO</th>
+                                                <th>Affiliation</th>
 						<th>Article ID</th>
 						
 					</tr>
@@ -64,11 +63,10 @@
 				<tbody>
                                     
                                     <%
-                                        for (PubMedArticle p : art) {
-                                            j = p.getJournal();
+                                        for (PubMedArticle p : art) {                                            
                                             out.println("<tr>"                                                    
                                                 + "<td>" + p.getTitle() + "</td>"
-                                                + "<td>" + j.getTitle()+ "</td>"
+                                                + "<td>" + p.getAffliation()+ "</td>"
                                                 + "<td>" + p.getArticleID() + "</td>"
                                                 + "</tr>");
                                         }

@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.MeshHeading;
+import net.sf.json.*;
+import net.sf.json.JSONObject;
 import persistence.DAOException;
 import persistence.DAOMesh;
 
@@ -24,11 +26,7 @@ import persistence.DAOMesh;
 public class buscaMesh extends HttpServlet {
 
     
-    private static final String[] MONTH = new String[] {
-      "January","Febuary","March","April","May","June",
-      "July","August","September","October","November","December"
-    };
-    
+
     
     /**
      * Processes requests for both HTTP

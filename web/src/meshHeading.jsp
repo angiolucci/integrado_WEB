@@ -73,9 +73,7 @@
                                 $(this).html('');
                             });
                         }
-              });                                       
-
-  
+              });                                                                 
          });
       </script>
                <%@ include file="rodape.jsp"%>

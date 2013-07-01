@@ -73,14 +73,14 @@
 		</nav>
 		<article class="span8">
 			<form class="form-search">                             
-                            <input type="text" name="titulo" id="titulo" class="input-xxlarge search-query"><input type="submit" id="artig" class="btn" name="ar"  >
+                            <input type="text" name="titulo" id="titulo" class="input-xxlarge search-query"><button type="button" id="artig" class="btn" name="ar"  > Buscar</button>
 			         
                         
                         </form>
                         <table id="tt" name="tt"class="table">
                             
                     <thead>
-                    <tr>    <th>  Artigos encontrados  </th>   </tr>
+                    <tr>    <th>  Artigos encontrados  </th>  
                     </thead>
                     <tbody id="listagem" name="listagem">
                         
@@ -98,11 +98,52 @@
               <script>
                
                 $(document).ready(function(){
-                  
+        
       
-                $("#titulo").keyup(function(){    
+                $("#artig").click(function(){    
                    if((($("#titulo").val()) !== '')){
                    
+             $('#tt').dataTable().fnDestroy();
+             $('#listagem').html("");
+                        $('#tt').dataTable({
+                            
+                            
+                        "bDestroy":true,
+                    
+                        
+                    "sPaginationType": "full_numbers",
+					"bPaginate": true,
+					"bJQueryUI": false,
+					"iDisplayLenght" : 10,
+					
+					"oLanguage": {
+                        "sProcessing":   "Processando...",
+                        "sLengthMenu":   "Mostrar _MENU_ registros",
+                        "sZeroRecords":  "Procurando artigos...",
+                	"sInfo":    "Mostrando de _START_ at&eacute; _END_ de _TOTAL_ registros",
+                        "sInfoEmpty":    "Mostrando de 0 at&eacute; 0 de 0 registros",
+                        "sInfoFiltered": "(filtrado de _MAX_ registros no total)",
+                        "sInfoPostFix":  "  ",
+                        "sSearch":       "Refinar:",
+                        "sUrl":          "",
+                        "oPaginate": {
+                            "sFirst":    "    Primeiro    ",
+                            "sPrevious": "    Anterior    ",
+                            "sNext":     "    Seguinte    ",
+                            "sLast":     "    &Uacute;ltimo   "
+                        }                                                                              
+                        }
+    
+    
+    
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        });
                         $.ajax({
                         type: "GET",
                         url: "buscaArtigo",
@@ -110,7 +151,37 @@
                         data: {ttl: $("#titulo").val() }
                         }).done(function(data){
                         $('#listagem').html(data);
-                        $('#tt').dataTable({"bDestroy":true});
+                        $('#tt').dataTable({
+                            
+                        "bDestroy":true,
+                    
+                        
+                    "sPaginationType": "full_numbers",
+					"bPaginate": true,
+					"bJQueryUI": false,
+					"iDisplayLenght" : 10,
+					
+					"oLanguage": {
+                        "sProcessing":   "Processando...",
+                        "sLengthMenu":   "Mostrar _MENU_ registros",
+                        "sZeroRecords":  "N&atilde;o foram encontrados resultados",
+                	"sInfo":    "Mostrando de _START_ at&eacute; _END_ de _TOTAL_ registros",
+                        "sInfoEmpty":    "Mostrando de 0 at&eacute; 0 de 0 registros",
+                        "sInfoFiltered": "(filtrado de _MAX_ registros no total)",
+                        "sInfoPostFix":  "  ",
+                        "sSearch":       "Refinar:",
+                        "sUrl":          "",
+                        "oPaginate": {
+                            "sFirst":    "    Primeiro    ",
+                            "sPrevious": "    Anterior    ",
+                            "sNext":     "    Seguinte    ",
+                            "sLast":     "    &Uacute;ltimo   "
+                        }                                                                              
+                        }
+    
+    
+    
+                        });
                          
                         });
             
@@ -118,15 +189,8 @@
                    }
                    
                 });
+               
                 
-                
-/*
-            $("#artig").click(function(){
-        
-             $('#tt').dataTable().fnDestroy();    
-            
-            }); 
-  */     
                 
                }); 
                 

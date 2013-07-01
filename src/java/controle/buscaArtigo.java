@@ -4,6 +4,7 @@
  */
 package controle;
 
+import java.io.Console;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -72,194 +73,40 @@ public class buscaArtigo extends HttpServlet {
         
             response.setCharacterEncoding("UTF-8");
             
-           
-           //String Artigos =" ";
-           /* DAOPubMedArticle DAOartigo = new DAOPubMedArticle();
+            String Artigos =" ";
+            String Head = "<tr><th>Título</th><th>Journal</th></tr>";
+           try{
+               
+               
+            DAOPubMedArticle daoartigo = new DAOPubMedArticle();     
+            String title = request.getParameter("ttl");     
+            System.out.print(" Entrou aqui");
+            
+          
             List<PubMedArticle> listaArtigos;
-            String title = request.getParameter("ttl");
-            listaArtigos = DAOartigo.consultaArticle(title);
-            
+          
+            listaArtigos  = (List<PubMedArticle>) daoartigo.consultaArticle(title);
+               
+                
             for(PubMedArticle i:listaArtigos){
-            Artigos = "<tr>";
+            Artigos += "<tr>";
             Artigos +="<td>" + i.getTitle() + "</td>";
-            Artigos +="<td>" + i.getJournal() + "</td> +</tr>";
-            
-            
-            DAOAuthor DAOAuthor = new DAOAuthor();
-            LinkedList<Author> listaAutor = null;
-            listaAutor = (LinkedList<Author>) DAOAuthor.consultaAuthor(i.getArticleID());
-
-                for(Author j:listaAutor){
-                    Artigos +="<tr>";
-                    Artigos +="<td>" + j.getForename() + "</td>";
-                    Artigos +="<td>" + j.getForename() + "</td>";
-                    Artigos +="</tr>";
-                }
-                i.setAuthors(listaAutor);
-       
-            
+            Artigos += "<td>" + i.getAffliation() + "</td> </tr>";
+           
             }
             
-            */
-            
-            
-            
-            String title = request.getParameter("ttl");
-            String Artigo = null ;
-            if( title.equals("a")){
-              Artigo = "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-              Artigo += "<tr> <td> teste1 </td> </tr>";
-                
-             
-              
-       
-            }else if(title.equals("aa")){
-              Artigo = "<tr> <td> aaaaa </td> </tr>";
-               Artigo+= "<tr> <td> bbbbb </td> </tr>";
-                
-                
-            }else if(title.equals("aaa")){
-                   Artigo = "<tr> <td> bbbbb </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo +=  "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>";
-                Artigo += "<tr> <td> asghajsgaj </td> </tr>"; 
+             }catch (DAOException ex) {        
+            throw new ServletException(ex.getMessage());
+            } catch (SQLException ex) {            
+            throw new ServletException(ex.getMessage());
             }
-        
             
-           // System.out.println(Artigo);
-            PrintWriter writer = response.getWriter();
-            writer.print(Artigo);
-            writer.close();
+            
+           Head+= Artigos;
+            PrintWriter writer = response.getWriter(); 
+	    
+            writer.close();            
+		writer.print(Artigos);
             
     }
 
@@ -276,6 +123,8 @@ public class buscaArtigo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
              
         try {
+            
+            System.out.print(" Entrou aqui");
             DAOPubMedArticle daoart = new DAOPubMedArticle();
             List<PubMedArticle> listaArtigo;
 
