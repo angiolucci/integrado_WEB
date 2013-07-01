@@ -99,7 +99,7 @@ public List<PubMedArticle> consultaArticle(String titulo) throws DAOException, S
             List<PubMedArticle> pub = new ArrayList<PubMedArticle>();
             PreparedStatement ps;
             
-            ps = conn.prepareStatement("EXEC usp_buscamesh ?");
+            ps = conn.prepareStatement("EXEC usp_busca ?");
             ps.setString(1, titulo);
 
             ResultSet rs = ps.executeQuery();

@@ -12,6 +12,24 @@ public class SystemUser {
     private String login;
     private int type;
     private String nome;
+    private String shadow;
+    
+    public String getShadow() {
+        return shadow;
+    }
+
+    public void setShadow(String shadow) {
+        this.shadow = shadow;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    private String email;
 
     public String getLogin() {
         return login;

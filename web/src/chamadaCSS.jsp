@@ -35,6 +35,7 @@
         <script type="text/javascript" src="js/jquery.dataTables.js"></script>
         <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="js/bootstrap-typeahead.js"></script>
-        <script src="js/jquery-autocomplete.js"></script> 
+        <script src="js/jquery-autocomplete.js"></script>
+        <script src="js/scripts.js"></script>
         <link rel="stylesheet" href="css/jquery-autocomplete.css" />
 
