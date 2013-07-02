@@ -3,7 +3,30 @@
 <html lang="en">
   <head>
     <title>Register Article</title>
-    <%@include file="chamadaCSS.jsp" %>  
+    <%@include file="chamadaCSS.jsp" %>
+    <script>
+        var kw = "";
+        var at = "";
+        
+        function addKW(){
+            if (document.getElementById("keyword").value != ""){
+            kw += document.getElementById("keyword").value+";";
+            document.getElementById("keyword").value = "";
+            document.getElementById("listaKW").val = kw;
+            window.alert( 'Palavra-chave salva' );
+            }
+        }
+        
+         function addAUTHOR(){
+            if (document.getElementById("forename").value !== "" && document.getElementById("middlename").value !== ""){
+            at += document.getElementById("forename").value+","+document.getElementById("middlename").value + ";" ;
+            document.getElementById("forename").value = "";
+            document.getElementById("middlename").value = "";
+            document.getElementById("listaAuthor").val = at;
+            window.alert('Autor salvo');
+            }
+        }
+    </script>    
   </head>
   
   
@@ -59,7 +82,7 @@
                     </select>
                    </span>
                 </p>
-                <p><span class="text-left"><label for="keyword">Palavra-Chave <span id="errokey" class="text-error"></span></label></span><span><input type="text" id="keyword"></span></p>
+                <p><span class="text-left"><label for="keyword">Palavra-Chave <span id="errokey" class="text-error"></span></label></span><span><input type="text" id="keyword"></span><span><input type="button" value="+" onclick="addKW()"></input></span></p>
                  
 
                 <p><span class="text-left"><label for="title">Title <span id="errotitle" class="text-error"></span></label></span><span><input type="text" id="title" name="title"></span></p>
@@ -70,7 +93,7 @@
                 <fieldset>
                     <legend> Autor </legend>
                     <p><span class="text-left"><label for="forename">Nome <span id="erronome" class="text-error"></span></label></span><span><input type="text" id="forename"></span></p>
-                    <p><span class="text-left"><label for="middlename">Sobrenome <span id="errosobrenome" class="text-error"></span></label></span><span><input type="text" id="middlename"></span></p>
+                    <p><span class="text-left"><label for="middlename">Sobrenome <span id="errosobrenome" class="text-error"></span></label></span><span><input type="text" id="middlename"></span><span><input type="button" value="+" onclick="addAUTHOR()"></input></span></p>
                 </fieldset>                
                 
                 <fieldset>
@@ -92,7 +115,9 @@
                     </select>
                    </span>
                 </p>
-                </fieldset>                
+                </fieldset>     
+                <input type="hidden" id="listaKW">
+                <input type="hidden" id="listaAuthor">
                 <!--<p><span class="text-left" id="desc-erro"></span><span id="erro" class="text-right"></span></p>-->
                 <p><input type="submit" id="cadastrar" value="Cadastrar !" class="btn" name="cad"></p>
             
