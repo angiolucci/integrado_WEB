@@ -6,6 +6,7 @@ package persistence;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -19,6 +20,11 @@ public class DAOAuthor {
        Connection conn = null;
       Statement sqlStm = null;
       ResultSet rs = null;
+      
+    public DAOAuthor() throws DAOException{
+        this.conn = ConnectionFactory.getConnection(50);    
+    }
+      
       
 public List<Author> consultaAuthor(int articleId){
       List<Author> listaAuthor = new ArrayList<Author>();
@@ -47,7 +53,24 @@ public List<Author> consultaAuthor(int articleId){
 }
     
     
+     public int inserir_author(Author a ){
     
+    try{
+        
+            sqlStm = conn.createStatement();
+            
+            PreparedStatement cs = conn.prepareStatement("EXEC usp_addAutor ?,?,?");
+            cs.setString(1, a.getForename());
+            cs.setString(1, a.getLastname());
+            cs.setString(1, a.getInitials());
+        
+            }catch(Exception ex){
+        
+             }
+    
+    return 
+
+}    
     
     
 

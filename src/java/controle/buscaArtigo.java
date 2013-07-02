@@ -80,7 +80,6 @@ public class buscaArtigo extends HttpServlet {
                
             DAOPubMedArticle daoartigo = new DAOPubMedArticle();     
             String title = request.getParameter("ttl");     
-            System.out.print(" Entrou aqui");
             
           
             List<PubMedArticle> listaArtigos;
@@ -90,8 +89,8 @@ public class buscaArtigo extends HttpServlet {
                 
             for(PubMedArticle i:listaArtigos){
             Artigos += "<tr>";
-            Artigos +="<td>" + i.getTitle() + "</td>";
-            Artigos += "<td>" + i.getAffliation() + "</td> </tr>";
+            Artigos +="<td>" + i.getTitle() + "</td></tr>";
+          //  Artigos += "<td>" + i.getAffliation() + "</td> </tr>";
            
             }
             
@@ -103,11 +102,9 @@ public class buscaArtigo extends HttpServlet {
             
             
            Head+= Artigos;
-            PrintWriter writer = response.getWriter(); 
-	    
-            writer.close();            
+                PrintWriter writer = response.getWriter();        
 		writer.print(Artigos);
-            
+                writer.close();
     }
 
     /**

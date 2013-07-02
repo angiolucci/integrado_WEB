@@ -11,29 +11,7 @@ import java.util.LinkedList;
  * @author vinicius
  */
 public class PubMedArticle {
-    public PubMedArticle(Integer articleID, String affliation, 
-                         String publicationStatus, String title, 
-                         Integer pagBegin, Integer numberOfPages, 
-                         LinkedList<PubType> pTypes, LinkedList<Author> authors,
-                         LinkedList<Substance> substances, 
-                         JournalIssue journalIssue, 
-                         LinkedList<KeyWord> keywords, 
-                         LinkedList<MeshHeading> meshTerms)
-    {
-        this.articleID = articleID;
-        this.affliation = affliation;
-        this.publicationStatus = publicationStatus;
-        this.title = title;
-        this.pagBegin = pagBegin;
-        this.pTypes = pTypes;
-        this.authors = authors;
-        this.substances = substances;
-        this.journalIssue = journalIssue;
-        this.keywords = keywords;
-        this.meshTerms = meshTerms;
-        this.numberOfPages = numberOfPages;
-    }
-
+    
     public PubMedArticle() {
         this.pTypes = new LinkedList();
         this.authors = new LinkedList();

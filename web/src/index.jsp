@@ -95,55 +95,24 @@
                     
 		</article>
 	</section>
-              <script>
-               
+                                
+                                
+                      
+                                
+                                
+                                
+              <script>  
                 $(document).ready(function(){
         
-      
-                $("#artig").click(function(){    
-                   if((($("#titulo").val()) !== '')){
-                   
+             $("#titulo").click(function(){
              $('#tt').dataTable().fnDestroy();
              $('#listagem').html("");
-                        $('#tt').dataTable({
-                            
-                            
-                        "bDestroy":true,
-                    
-                        
-                    "sPaginationType": "full_numbers",
-					"bPaginate": true,
-					"bJQueryUI": false,
-					"iDisplayLenght" : 10,
-					
-					"oLanguage": {
-                        "sProcessing":   "Processando...",
-                        "sLengthMenu":   "Mostrar _MENU_ registros",
-                        "sZeroRecords":  "Procurando artigos...",
-                	"sInfo":    "Mostrando de _START_ at&eacute; _END_ de _TOTAL_ registros",
-                        "sInfoEmpty":    "Mostrando de 0 at&eacute; 0 de 0 registros",
-                        "sInfoFiltered": "(filtrado de _MAX_ registros no total)",
-                        "sInfoPostFix":  "  ",
-                        "sSearch":       "Refinar:",
-                        "sUrl":          "",
-                        "oPaginate": {
-                            "sFirst":    "    Primeiro    ",
-                            "sPrevious": "    Anterior    ",
-                            "sNext":     "    Seguinte    ",
-                            "sLast":     "    &Uacute;ltimo   "
-                        }                                                                              
-                        }
-    
-    
-    
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                        });
+             });
+             
+             
+                $("#artig").click(function(){    
+                   if((($("#titulo").val()) !== '')){
+                         
                         $.ajax({
                         type: "GET",
                         url: "buscaArtigo",

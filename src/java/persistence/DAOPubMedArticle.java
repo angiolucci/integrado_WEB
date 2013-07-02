@@ -27,7 +27,7 @@ public class DAOPubMedArticle {
       String titulo;
 
     public DAOPubMedArticle() throws DAOException{
-        this.conn = ConnectionFactory.getConnection();    
+        this.conn = ConnectionFactory.getConnection(50);    
     }
       
       
@@ -39,19 +39,7 @@ public void inserirArtigo(String articleID,String lastname,String forename,
         Integer ipt,String pagTotal){
     
    
-    try{
-            sqlStm = conn.createStatement();
-            
-            PreparedStatement cs = conn.prepareStatement("EXEC usp_insereAutor ?,?,?,?");
-            cs.setString(1, titulo);
-            cs.setString(1, titulo);
-            cs.setString(1, titulo);
-            cs.setInt(1, 1);
-
-        
-    }catch(Exception ex){
-        
-    }
+    
     
    
     try{
@@ -59,9 +47,20 @@ public void inserirArtigo(String articleID,String lastname,String forename,
             sqlStm = conn.createStatement();
             
             PreparedStatement cs = conn.prepareStatement("EXEC usp_insereArticle ?,?,?,?,?,?,?,?");
+            cs.setString(1, );
+            cs.setString(1, articleid);
+            cs.setString(1, issuejorn);
+            cs.setString(1, issnjourn);
+            cs.setString(1, volume);
+            cs.setString(1, affiliation);
+
+            cs.setString(1, pbstatus);
             cs.setString(1, titulo);
-            cs.setString(1, titulo);
-            cs.setString(1, titulo);
+            cs.setString(1, pag_begin);
+            cs.setString(1, pag_end);
+            cs.setString(1, user);
+             
+            
             cs.setInt(1, 1);
 
         
