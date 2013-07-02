@@ -16,7 +16,7 @@
          
     <nav>
     <ul class="breadcrumb">
-	<li>    <a href="index.jsp">Página Inicial</a> <span class="divider">/</span> </li>           
+	<li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>           
 	<li> <a href="ajuda.jsp">Ajuda</a> <span class="divider">/</span> </li>
         <li class="active"> Login </li>
     </ul>  
@@ -40,7 +40,9 @@
             <p>Se o usuário já estiver registrado, mas esquecer sua senha, também existe a possibilidade
             dele recuperá-la. Basta clicar em "Esqueceu sua senha?" ao lado do link de registro e digitar
             seu e-mail na tela seguinte.</p>
-        
+            <br />
+            <img src="img/telaLogin.png" />
+            <br /><br />
             <a href="ajuda.jsp">Voltar ao conteúdo da ajuda</a>
         <br><br>
         </div>    

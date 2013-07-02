@@ -1,7 +1,13 @@
+<%-- 
+    Document   : confirmacaoEnvio
+    Created on : 01/07/2013, 10:47:27
+    Author     : Guilherme
+--%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Ajuda</title>
+    <title>Confirmação de Envio de Senha</title>
     <%@include file="chamadaCSS.jsp" %>  
   </head>
   
@@ -17,8 +23,8 @@
     <nav>
     <ul class="breadcrumb">
 	<li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>           
-	<li> <a href="ajuda.jsp">Ajuda</a> <span class="divider">/</span> </li>
-        <li class="active"> Configurações </li>
+	<li> <a href="src/logIn.jsp">LogIn</a> <span class="divider">/</span> </li>
+        <li class="active"> Confirmação de Envio de Senha </li>
     </ul>  
     </nav> 
       
@@ -27,22 +33,15 @@
         <div class="span4">
         </div>
         <div class="span4"> 
-            <legend>Configurações </legend>
-
-            <a href="ajuda.jsp">Voltar ao conteúdo da ajuda</a>
+            <legend>Confirmação de Envio de Senha </legend>
+            <p>E-mail enviado!</p>
+            <a href="src/logIn.jsp">Voltar para login</a>
         <br><br>
         </div>    
       </article>
     </section>
       
        
-      <script>
-          
-          $(document).ready(function(){
-              
-            
-         });
-      </script>
           <%@ include file="rodape.jsp"%>     
     </body>
 </html>

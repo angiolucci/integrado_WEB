@@ -50,6 +50,8 @@
                     <div class="controls">
                         <button type="submit" class="btn">Entrar</button>
                         <a href="cadastrarUsuario.jsp">Registrar-se</a>
+                                    <br><br>
+                        <a href="esqueceuSenha.jsp">Esqueceu sua senha?</a>
                     </div>
                 </div>
                 

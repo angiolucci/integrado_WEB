@@ -30,8 +30,8 @@
                      <ul class="dropdown-menu">
                          <li>    <a href="registerArticle.jsp">Incuir</a> </li>
                          <li>    <a href="alterArticle.jsp">Alterar</a>   </li>
-                         <li>    <a href="searchArticle.jsp">Remover</a>   </li>
-                         <li>    <a href="deleteRegisterArticle.jsp">Consultar</a>   </li>                                   
+                         <li>    <a href="deleteRegisterArticle.jsp">Remover</a>   </li>
+                         <li>    <a href="searchArticle.jsp">consultar</a>   </li>                                   
                      </ul>
                  </li>
             <% } %>

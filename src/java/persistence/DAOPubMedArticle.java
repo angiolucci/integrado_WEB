@@ -40,7 +40,6 @@ public void inserirArtigo(String articleID,String lastname,String forename,
     
    
     try{
-            conn = ConnectionFactory.getConnection();
             sqlStm = conn.createStatement();
             
             PreparedStatement cs = conn.prepareStatement("EXEC usp_insereAutor ?,?,?,?");
@@ -106,11 +105,10 @@ public List<PubMedArticle> consultaArticle(String titulo) throws DAOException, S
             
             while(rs.next()){
                 PubMedArticle pumed = new PubMedArticle();
-                Journal j = new Journal();
-                pumed.setTitle(rs.getString("title"));
-                pumed.setJournal(j);
+                pumed.setTitle(rs.getString("TITLE"));
+                pumed.setAffliation(rs.getString("AFFILIATION"));
                 pumed.setArticleID(Integer.parseInt(rs.getString("ARTICLEID")));
-                pub.add(pumed); 
+                pub.add(pumed);
             }
 
             return pub;
