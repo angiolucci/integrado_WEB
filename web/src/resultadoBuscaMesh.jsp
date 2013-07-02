@@ -88,7 +88,7 @@
                         "sInfoEmpty":    "Mostrando de 0 at&eacute; 0 de 0 registros",
                         "sInfoFiltered": "(filtrado de _MAX_ registros no total)",
                         "sInfoPostFix":  "  ",
-                        "sSearch":       "Buscar:",
+                        "sSearch":       "Refinar:",
                         "sUrl":          "",
                         "oPaginate": {
                             "sFirst":    "    Primeiro    ",

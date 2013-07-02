@@ -81,7 +81,7 @@ public class cadastrarMesh extends HttpServlet {
             if (val == 1){
                 msg = " <script> window.alert(\"Dados cadastrados com Sucesso !\")</script>";
             }else{
-                msg = " <script> window.alert(\"Erro ao cadastrar Tipo de Publicação !\")</script>";
+                msg = " <script> window.alert(\"Erro ao cadastrar Mesh !\")</script>";
             }
             
                 PrintWriter writer = response.getWriter();
