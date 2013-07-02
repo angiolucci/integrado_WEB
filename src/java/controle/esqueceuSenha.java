@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.mail.*;
+import persistence.DAOEsqueceuSenha;
 
 /**
  *
@@ -57,25 +58,30 @@ public class esqueceuSenha extends HttpServlet {
        
         String servidor = dest.substring(dest.indexOf("@") + 1);
         Email email = new SimpleEmail();
-        String msg = "A sua senha é: teste\n\nCaso não tenha solicitado"
-                + " recuperação de senha, ignore este e-mail.\n\nEquipe PubMed";
+        String msg;
         String assunto = "Recuperação de senha";
         
         try {
-            email.setStartTLSEnabled(true);
-            email.addTo(dest);
-            email.setHostName("smtp.gmail.com");
+            DAOEsqueceuSenha dao = new DAOEsqueceuSenha();
+            String senha = dao.recuperaSenha(dest);
+            if (senha.equals("")) {
+                response.sendRedirect("erroEnvio.jsp");
+            } else {
+                msg = "A sua senha é: " + senha + "\n\nCaso não tenha solicitado"
+                + " recuperação de senha, ignore este e-mail.\n\nEquipe PubMed";
+                email.setStartTLSEnabled(true);
+                email.addTo(dest);
+                email.setHostName("smtp.gmail.com");
             
-            email.setAuthentication("pubmed2013@gmail.com", "integrado2013");
-            email.setFrom("pubmed2013@gmail.com");
-            email.setMsg(msg);
-            email.setSubject(assunto);
-            email.send();
-            request.setAttribute("email", email);
-            RequestDispatcher rd = request.getRequestDispatcher("confirmacaoEnvio.jsp");
-            rd.forward(request, response);
+                email.setAuthentication("pubmed2013@gmail.com", "integrado2013");
+                email.setFrom("pubmed2013@gmail.com");
+                email.setMsg(msg);
+                email.setSubject(assunto);
+                email.send();
+                response.sendRedirect("confirmacaoEnvio.jsp");
+            }
         } catch(EmailException e) {
-            response.sendRedirect("erroEnvio.jsp");
+            e.printStackTrace();
         }
     }
 
