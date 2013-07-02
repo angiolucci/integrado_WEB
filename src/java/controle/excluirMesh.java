@@ -4,26 +4,25 @@
  */
 package controle;
 
-import com.sun.java.swing.plaf.windows.resources.windows;
-import java.io.Console;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.MeshHeading;
 import persistence.DAOException;
 import persistence.DAOMesh;
-import persistence.DAOPubType;
 
 /**
  *
  * @author Mercês
  */
-public class cadastrarMesh extends HttpServlet {
+public class excluirMesh extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -44,10 +43,10 @@ public class cadastrarMesh extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet cadastrarPubtype</title>");            
+            out.println("<title>Servlet excluirMesh</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet cadastrarPubtype at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet excluirMesh at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {            
@@ -69,35 +68,36 @@ public class cadastrarMesh extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-            request.setCharacterEncoding("UTF-8");
         
-            int val;
-            String mesh = request.getParameter("retorno");
-            String msg;
-            try {
-                DAOMesh daomesh = new DAOMesh();                
-                val =  daomesh.inserirMesh(mesh);
+                request.setCharacterEncoding("UTF-8");
+                        
+                String mesh = request.getParameter("mesh");        
+                DAOMesh daomesh = null;  
+                try {
+                    daomesh = new DAOMesh();
+                } catch (DAOException ex) {
+                    Logger.getLogger(excluirMesh.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                List<MeshHeading> listaMesh = null ;
+                try {
+                    listaMesh = (List<MeshHeading>) daomesh.consultaMeshHeading(mesh);
+                } catch (SQLException ex) {
+                    Logger.getLogger(excluirMesh.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 
-            if (val == 1){
-                msg = " <script> window.alert(\"Dados cadastrados com Sucesso !\")</script>";
-            }else{
-                msg = " <script> window.alert(\"Erro ao cadastrar Tipo de Publicação !\")</script>";
-            }
+                
+                String Del = null;
+                
+                Del += "<thead> <tr> <th> Termo Mesh </th> <th>Excluir ?</th>  </tr> </thead>";
+                for(MeshHeading m:listaMesh){                    
+                    Del += "<tr><td>"+m.getDescription()+"</td>"+"<td>"
+                            + "<button type=\"submit\" class=\"btn\" onclick\" = excluir("+m.getDescription()+"\")>Excluir</button></td> </tr>";                                        
+                }
+                
             
                 PrintWriter writer = response.getWriter();
-                writer.print(msg);
-                writer.close();
-            
-                
-                
-                
-                
-            } catch (DAOException ex) {
-                Logger.getLogger(cadastrarMesh.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(cadastrarMesh.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
+                writer.print(Del);
+                writer.close();            
     }
 
     /**
@@ -112,7 +112,31 @@ public class cadastrarMesh extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+         request.setCharacterEncoding("UTF-8");
+        
+            int val;
+            String mesh = request.getParameter("retorno");
+            String msg;
+            try {
+                DAOMesh daomesh = new DAOMesh();                
+                val =  daomesh.excluirMesh(mesh);
+                
+            if (val == 1){
+                msg = " <script> window.alert(\"Dados excluidos com Sucesso !\")</script>";
+            }else{
+                msg = " <script> window.alert(\"Erro ao excluir Mesh !\")</script>";
+            }
+            
+                PrintWriter writer = response.getWriter();
+                writer.print(msg);
+                writer.close();
+                
+            } catch (DAOException ex) {
+                Logger.getLogger(cadastrarMesh.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(cadastrarMesh.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

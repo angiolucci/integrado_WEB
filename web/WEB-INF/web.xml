@@ -100,6 +100,14 @@
         <servlet-name>buscaAvancada4</servlet-name>
         <servlet-class>controle.buscaAvancada4</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>excluirMesh</servlet-name>
+        <servlet-class>controle.excluirMesh</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>excluirArtigo</servlet-name>
+        <servlet-class>controle.excluirArtigo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>efetuarCadastro</servlet-name>
         <url-pattern>/src/efetuarCadastro</url-pattern>
@@ -156,12 +164,10 @@
         <servlet-name>buscaEdicao</servlet-name>
         <url-pattern>/src/buscaEdicao</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>esqueceuSenha</servlet-name>
         <url-pattern>/src/esqueceuSenha</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>buscaVolume</servlet-name>
         <url-pattern>/src/buscaVolume</url-pattern>
@@ -201,6 +207,14 @@
     <servlet-mapping>
         <servlet-name>buscaAvancada4</servlet-name>
         <url-pattern>/src/buscaAvancada4</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>excluirMesh</servlet-name>
+        <url-pattern>/src/excluirMesh</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>excluirArtigo</servlet-name>
+        <url-pattern>/src/excluirArtigo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

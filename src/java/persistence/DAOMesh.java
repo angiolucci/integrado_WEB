@@ -25,6 +25,16 @@ public class DAOMesh {
         this.conn = ConnectionFactory.getConnection();    
     }
     
+    
+    public int excluirMesh(String mesh) throws SQLException{        
+        PreparedStatement ps;
+                        
+        ps = conn.prepareStatement("EXEC usp_delmesh ?");                        
+        ps.setString(1, mesh);        
+        
+        return ps.executeUpdate();
+    }        
+    
     public int inserirMesh(String mesh) throws SQLException{
         List<MeshHeading> listaMesh = new ArrayList<MeshHeading>();
         PreparedStatement ps;

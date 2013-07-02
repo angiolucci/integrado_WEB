@@ -5,7 +5,8 @@
 <html lang="en">
   <head>
     <title>Mesh Terms</title>
-   <%@include file="chamadaCSS.jsp" %>   
+   <%@include file="chamadaCSS.jsp" %> 
+   <% response.setContentType("application/json");%>  
   </head>
   
   
@@ -63,7 +64,9 @@
                         $("#cad").html(data);   
                         
                     });
-              });            
+              });       
+              
+              
             
             
             $('#description').focusout(function(){

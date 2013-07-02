@@ -29,21 +29,13 @@
          <fieldset class="span4">
           <legend>  Exclusão Termos Mesh  </legend>
           
-          <form class="form-search">                             
-                <button type="submit" class="btn">Search</button> <input type="text" class="input-medium search-query">                              
+          <form class="form-search" action="excluirMesh" method="GET">                             
+                <button type="button" id="apagar" class="btn">Buscar</button> <input type="text" class="input-medium search-query" id="mesh">                              
           </form>
-          <form autocomplete="on" class="span4" id="myform">
-              
-                <fieldset>
-                    <legend>MeshHeading</legend>  
-                </fieldset>
-              <fieldset>
-                <p><span class="text-left"><label for="mesh"> Termos Mesh <span class="text-error" id="erromesh"></span> </label></span><span><input type="text" id="mesh"></span></p>                
-                <!--<p><span class="text-error"></span><span class="text-error" id="desc-erro"></span><span id="erro"></span></p>-->
-                
-                <p> <input type="button" id="apagar" value="Apagar" class="btn"> </p>            
-              </fieldset>
-              
+          <form autocomplete="on" class="span4" id="formTable" metho="POST" name="formTable">                                                                               
+              <table id="idTabela" class="table">
+                  
+              </table>
           </form>
       </fieldset>  
           
@@ -55,8 +47,60 @@
           
           $(document).ready(function(){
               
+              $('#apagar').click(function(){              
+              $.ajax({
+                    type: "GET",
+                    url: "excluirMesh",
+                    dataType: "html",
+                    data:{
+                        mesh: $("#mesh").val() 
+                    }
+                    }).done(function(data){                        
+                        $("#idTabela").html(data); 
+                        
+                        $('#idTabela').dataTable({
+                                        "sPaginationType": "full_numbers",
+					"bPaginate": true,
+					"bJQueryUI": false,
+					"iDisplayLenght" : 10,
+					
+					"oLanguage": {
+                        "sProcessing":   "Processando...",
+                        "sLengthMenu":   "Mostrar _MENU_ registros",
+                        "sZeroRecords":  "N&atilde;o foram encontrados resultados",
+                	"sInfo":    "Mostrando de _START_ at&eacute; _END_ de _TOTAL_ registros",
+                        "sInfoEmpty":    "Mostrando de 0 at&eacute; 0 de 0 registros",
+                        "sInfoFiltered": "(filtrado de _MAX_ registros no total)",
+                        "sInfoPostFix":  "  ",
+                        "sSearch":       "Buscar:",
+                        "sUrl":          "",
+                        "oPaginate": {
+                            "sFirst":    "    Primeiro    ",
+                            "sPrevious": "    Anterior    ",
+                            "sNext":     "    Seguinte    ",
+                            "sLast":     "    &Uacute;ltimo   "
+                        }                                                                              
+                     }
+                 });
+                        
+                    });
+              });  
             
          });
+         
+         function excluir(id){                 
+                $.ajax({
+                    type: "POST",
+                    url: "excluirMesh",
+                    dataType: "html",
+                    data:{
+                        mesh: id
+                    }
+                    }).done(function(data){  
+                        $("#formTable").html(data);   
+                        
+                    });
+              };                                                                    
       </script>
                 <%@ include file="rodape.jsp"%>
       

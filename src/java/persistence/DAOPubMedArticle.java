@@ -47,7 +47,17 @@ public int inserirArtigo(PubMedArticle pub) throws SQLException{
     return cs.executeUpdate();     
 
     
-}        
+}     
+
+public int excluirArtigo(int id) throws SQLException{
+           
+            PreparedStatement cs = conn.prepareStatement("EXEC usp_addPubmedArticle ?,?,?,?,?,?,?,?,?,? ");
+            cs.setInt(1, id);
+    return cs.executeUpdate();     
+
+    
+}     
+
       
       
 public List<PubMedArticle> consultaArticle(String titulo) throws DAOException, SQLException{
@@ -58,10 +68,12 @@ public List<PubMedArticle> consultaArticle(String titulo) throws DAOException, S
             ps = conn.prepareStatement("EXEC usp_buscarapida ?");
             ps.setString(1, titulo);
 
-            ResultSet rs = ps.executeQuery();
+            ResultSet rs ;
+            rs = ps.executeQuery();
             
             while(rs.next()){
                 PubMedArticle pumed = new PubMedArticle();
+                
                 pumed.setTitle(rs.getString("TITLE"));
                 pumed.setAffliation(rs.getString("AFFILIATION"));
                 pumed.setArticleID(Integer.parseInt(rs.getString("ARTICLEID")));
