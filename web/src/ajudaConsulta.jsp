@@ -16,7 +16,7 @@
          
     <nav>
     <ul class="breadcrumb">
-	<li>    <a href="index.jsp">Página Inicial</a> <span class="divider">/</span> </li>           
+	<li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>           
 	<li> <a href="ajuda.jsp">Ajuda</a> <span class="divider">/</span> </li>
         <li class="active"> Consulta </li>
     </ul>  
@@ -37,6 +37,9 @@
                 edição de revista ou termo Mesh) no submenu "Consultar" do cabeçalho.<br/>
             2- Digite o título da informação na caixa de texto ao lado do botão "Buscar Título"
             e depois clique nesse botão. Os resultados da consulta serão exibidos na tabela abaixo.</p>
+            <br />
+            <img src="img/telaConsultaArtigo.png" />
+            <br /><br />
             
             <a href="ajuda.jsp">Voltar ao conteúdo da ajuda</a>
         </div>    
