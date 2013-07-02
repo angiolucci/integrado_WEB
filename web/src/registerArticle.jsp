@@ -31,55 +31,8 @@
                 <legend>
                     Cadastro de Artigos
                 </legend>
-                <fieldset>
-                <legend> Revista </legend>
-                <p><span class="text-left"><label for="titlejournal">Título da Revista </label></span><span class="text-left">
-                    <select name="titlejournal" id="titlejournal">
-                        <!--
-                        <option value="" selected></option>
-                        <option value="1">Acta Cardiologica</option>
-                        <option value="2">Child Welfare</option>                
-                        <option value="3">Harefuah</option>
-                        <option value="4">Khirurgiia</option>
-                        <option value="5">Magyar Oncologia</option>
-                        -->
-                    </select>
-                   </span>
-                </p>
-                
-                <p><span class="text-left"><label for="journalissue">Edição da Revista </label></span><span class="text-left">
-                    <select name="journalissue" id="journalissue">
-                        <!--
-                        <option value="" selected></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>                
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        -->
-                    </select>
-                   </span>
-                </p>
-                
-                <p><span class="text-left"><label for="journalissue"> Volume </label></span><span class="text-left">
-                    <select name="journalvolume" id="journalvolume">
-                        <!--
-                        <option value="" selected></option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>                
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        -->
-                    </select>
-                   </span>
-                </p>
-                </fieldset>
-                <fieldset>
-                    <legend> Autor </legend>
-                    <p><span class="text-left"><label for="forename">Nome <span id="erronome" class="text-error"></span></label></span><span><input type="text" id="forename"></span></p>
-                    <p><span class="text-left"><label for="middlename">Sobrenome <span id="errosobrenome" class="text-error"></span></label></span><span><input type="text" id="middlename"></span></p>
-                </fieldset>
+
+
                 <fieldset>
                     <legend>Artigo</legend>
                 <p><span class="text-left"><label for="articleid">Article ID <span id="erroid" class="text-error"></span></label></span><span><input type="text" id="articleid" name="articleid"></span></p>
@@ -113,6 +66,33 @@
                 <p><span class="text-left"><label for="pagbegin">Pag. Begin <span id="errobegin" class="text-error"></span></label></span><span><input type="text" id="pagbegin" name="pagbegin"></span></p>
                 <p><span class="text-left"><label for="pagend">Pag. End <span id="erroend" class="text-error"></span></label></span><span><input type="text" id="pagend" name="pagend"></span></p>
                 </fieldset>
+                
+                <fieldset>
+                    <legend> Autor </legend>
+                    <p><span class="text-left"><label for="forename">Nome <span id="erronome" class="text-error"></span></label></span><span><input type="text" id="forename"></span></p>
+                    <p><span class="text-left"><label for="middlename">Sobrenome <span id="errosobrenome" class="text-error"></span></label></span><span><input type="text" id="middlename"></span></p>
+                </fieldset>                
+                
+                <fieldset>
+                <legend> Revista </legend>
+                <p><span class="text-left"><label for="titlejournal">Título da Revista </label></span><span class="text-left">
+                    <select name="titlejournal" id="titlejournal">
+                    </select>
+                   </span>
+                </p>
+                
+                <p><span class="text-left"><label for="journalissue">Edição da Revista </label></span><span class="text-left">
+                    <select name="journalissue" id="journalissue">
+                    </select>
+                   </span>
+                </p>
+                
+                <p><span class="text-left"><label for="journalissue"> Volume </label></span><span class="text-left">
+                    <select name="journalvolume" id="journalvolume">
+                    </select>
+                   </span>
+                </p>
+                </fieldset>                
                 <!--<p><span class="text-left" id="desc-erro"></span><span id="erro" class="text-right"></span></p>-->
                 <p><input type="submit" id="cadastrar" value="Cadastrar !" class="btn" name="cad"></p>
             

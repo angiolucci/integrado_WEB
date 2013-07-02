@@ -31,8 +31,8 @@ public class Injector extends HttpServlet {
     private Statement stmt;
     private PreparedStatement ps;
     //private String conexao="jdbc:sqlserver://shelton.sor.ufscar.br:1433;database=labbd06";
-    private String conexao="jdbc:sqlserver://shelton.sor.ufscar.br:1433;database=labbd06";
-    //String conexao="jdbc:sqlserver://192.168.12.4:1433;database=labbd06";
+    //private String conexao="jdbc:sqlserver://shelton.sor.ufscar.br:1433;database=labbd06";
+    String conexao="jdbc:sqlserver://192.168.12.4:1433;database=labbd06";
     private String usuario="labbd06", senha="@masterkey@";
     
 public Connection getConnection(){
