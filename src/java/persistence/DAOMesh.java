@@ -25,6 +25,17 @@ public class DAOMesh {
         this.conn = ConnectionFactory.getConnection();    
     }
     
+    public int inserirMesh(String mesh) throws SQLException{
+        List<MeshHeading> listaMesh = new ArrayList<MeshHeading>();
+        PreparedStatement ps;
+                
+        ps = conn.prepareStatement("EXEC usp_addmesh ?");                        
+        ps.setString(1, mesh);        
+        
+        return ps.executeUpdate();
+    }
+    
+    
     public List<MeshHeading> consultaMeshHeading(String mesh) throws SQLException{
         List<MeshHeading> listaMeshHeading = new ArrayList<MeshHeading>();
         PreparedStatement ps;

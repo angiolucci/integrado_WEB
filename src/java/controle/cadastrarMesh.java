@@ -16,13 +16,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import persistence.DAOException;
+import persistence.DAOMesh;
 import persistence.DAOPubType;
 
 /**
  *
  * @author Mercês
  */
-public class cadastrarPubtype extends HttpServlet {
+public class cadastrarMesh extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -68,25 +69,29 @@ public class cadastrarPubtype extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+            request.setCharacterEncoding("UTF-8");
         
             int val;
-            String pub = request.getParameter("pubtype");
-            
+            String mesh = request.getParameter("retorno");
+            String msg;
             try {
-                DAOPubType daopub = new DAOPubType();                
-                val =  daopub.inserirPub(pub);
-            
-                                               
+                DAOMesh daomesh = new DAOMesh();                
+                val =  daomesh.inserirMesh(mesh);
+                
             if (val == 1){
-                System.out.println( "Dados cadastrados com Sucesso !");
+                msg = " <script> window.alert(\"Dados cadastrados com Sucesso !\")</script>";
             }else{
-                System.err.println("Erro ao cadastrar Tipo de Publicação");
+                msg = " <script> window.alert(\"Erro ao cadastrar Tipo de Publicação !\")</script>";
             }
             
+                PrintWriter writer = response.getWriter();
+                writer.print(msg);
+                writer.close();
+            
             } catch (DAOException ex) {
-                Logger.getLogger(cadastrarPubtype.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(cadastrarMesh.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
-                Logger.getLogger(cadastrarPubtype.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(cadastrarMesh.class.getName()).log(Level.SEVERE, null, ex);
         }
             
     }

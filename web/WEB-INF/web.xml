@@ -5,6 +5,10 @@
         <servlet-class>controle.efetuarCadastro</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>esqueceuSenha</servlet-name>
+        <servlet-class>controle.esqueceuSenha</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>Injector</servlet-name>
         <servlet-class>dbconnect.Injector</servlet-class>
     </servlet>
@@ -85,8 +89,8 @@
         <servlet-class>controle.buscaMesh</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>cadastrarPubtype</servlet-name>
-        <servlet-class>controle.cadastrarPubtype</servlet-class>
+        <servlet-name>cadastrarMesh</servlet-name>
+        <servlet-class>controle.cadastrarMesh</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>buscaAvancada3</servlet-name>
@@ -152,6 +156,12 @@
         <servlet-name>buscaEdicao</servlet-name>
         <url-pattern>/src/buscaEdicao</url-pattern>
     </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>esqueceuSenha</servlet-name>
+        <url-pattern>/src/esqueceuSenha</url-pattern>
+    </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>buscaVolume</servlet-name>
         <url-pattern>/src/buscaVolume</url-pattern>
@@ -181,8 +191,8 @@
         <url-pattern>/src/buscaMesh</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>cadastrarPubtype</servlet-name>
-        <url-pattern>/src/cadastrarPubtype</url-pattern>
+        <servlet-name>cadastrarMesh</servlet-name>
+        <url-pattern>/src/cadastrarMesh</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>buscaAvancada3</servlet-name>

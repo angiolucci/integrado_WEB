@@ -16,7 +16,7 @@
          
     <nav>
     <ul class="breadcrumb">
-	<li>    <a href="index.jsp">Página Inicial</a> <span class="divider">/</span> </li>           
+	<li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>           
 	<li> <a href="ajuda.jsp">Ajuda</a> <span class="divider">/</span> </li>
         <li class="active"> Alteração </li>
     </ul>  
@@ -39,7 +39,9 @@
             e depois clique nesse botão. Os campos abaixo serão automaticamente preenchidos com os respectivos
             valores encontrados na busca.<br/>
             3- Modifique os valores que desejar e depois clique em "Salvar" para aplicar as modificações.</p>
-            
+            <br />
+            <img src="img/telaAlteracaoRevista.png" />
+            <br /><br />
             <a href="ajuda.jsp">Voltar ao conteúdo da ajuda</a>
         </div>    
       </article>

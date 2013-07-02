@@ -16,7 +16,7 @@
          
     <nav>
     <ul class="breadcrumb">
-	<li>    <a href="index.jsp">Página Inicial</a> <span class="divider">/</span> </li>           
+	<li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>           
 	<li> <a href="ajuda.jsp">Ajuda</a> <span class="divider">/</span> </li>
         <li class="active"> Cadastro </li>
     </ul>  
@@ -37,6 +37,9 @@
                 edição de revista, termo Mesh ou tipo de publicação) no submenu "Cadastrar" do cabeçalho.<br/>
             2- Preencha os campos com os valores da informação que deseja cadastrar e depois clique em "Salvar" para
             realizar o cadastro.<br/></p>
+            <br />
+            <img src="img/telaCadastroEdicaoRevista.png" />
+            <br /><br />
             
             <a href="ajuda.jsp">Voltar ao conteúdo da ajuda</a>
         </div>    

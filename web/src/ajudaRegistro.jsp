@@ -16,7 +16,7 @@
          
     <nav>
     <ul class="breadcrumb">
-	<li>    <a href="index.jsp">Página Inicial</a> <span class="divider">/</span> </li>           
+	<li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>           
 	<li> <a href="ajuda.jsp">Ajuda</a> <span class="divider">/</span> </li>
         <li class="active"> Registro </li>
     </ul>  
@@ -36,7 +36,9 @@
             "Registrar-se" na página de login) um formulário para registro será aberto. Nele,
             o usuário poderá criar um nome de usuário e uma senha para realizar login no sistema,
             inserindo seus dados pessoais (e-mail, data de nascimento, sexo, endereço e telefone).</p>
-        
+            <br />
+            <img src="img/telaRegistro.png" />
+            <br /><br />
             <a href="ajuda.jsp">Voltar ao conteúdo da ajuda</a>
         <br><br>
         </div>    

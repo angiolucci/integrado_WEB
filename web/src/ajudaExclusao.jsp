@@ -16,7 +16,7 @@
          
     <nav>
     <ul class="breadcrumb">
-	<li>    <a href="index.jsp">Página Inicial</a> <span class="divider">/</span> </li>           
+	<li>    <a href="index.html">Página Inicial</a> <span class="divider">/</span> </li>           
 	<li> <a href="ajuda.jsp">Ajuda</a> <span class="divider">/</span> </li>
         <li class="active"> Exclusão </li>
     </ul>  
@@ -40,7 +40,9 @@
             valores encontrados na busca.<br/>
             3- Verifique se os valores dos campos são referentes aos da informação que deseja excluir e depois clique em "Apagar"
             para realizar a exclusão.</p>
-            
+            <br />
+            <img src="img/telaExclusaoTermoMesh.png" />
+            <br /><br />
             <a href="ajuda.jsp">Voltar ao conteúdo da ajuda</a>
         </div>    
       </article>
