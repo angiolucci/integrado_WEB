@@ -10,7 +10,7 @@ package model;
  */
 public class Journal {
         public Journal() {
-    }
+        }
 
     public String getIssn() {
         return issn;

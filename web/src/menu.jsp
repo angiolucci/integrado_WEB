@@ -28,7 +28,7 @@
                 <li class="dropdown">
                      <a data-toggle="dropdown" class="dropdown-toggle" href="#">Meus Artigos <strong class="caret"></strong></a>
                      <ul class="dropdown-menu">
-                         <li>    <a href="registerArticle.jsp">Incuir</a> </li>
+                         <li>    <a href="registerArticle.jsp">Incluir</a> </li>
                          <li>    <a href="alterArticle.jsp">Alterar</a>   </li>
                          <li>    <a href="deleteRegisterArticle.jsp">Remover</a>   </li>
                          <li>    <a href="searchArticle.jsp">consultar</a>   </li>                                   
@@ -41,7 +41,7 @@
                <li class="dropdown">
                      <a data-toggle="dropdown" class="dropdown-toggle" href="#">Termos Mesh <strong class="caret"></strong></a>
                      <ul class="dropdown-menu">
-                         <li>    <a href="meshHeading.jsp">Incuir</a> </li>
+                         <li>    <a href="meshHeading.jsp">Incluir</a> </li>
                          <li>    <a href="alterMeshHeading.jsp">Alterar</a>   </li>
                          <li>    <a href="deleteMeshHeading.jsp">Remover</a>   </li>
                          <li>    <a href="searchMeshHeading.jsp">Consultar</a>   </li>                                   

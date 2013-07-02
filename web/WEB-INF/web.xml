@@ -104,6 +104,14 @@
         <servlet-name>buscaAvancada4</servlet-name>
         <servlet-class>controle.buscaAvancada4</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>cadastrarJournal</servlet-name>
+        <servlet-class>controle.cadastrarJournal</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>alteraJournal</servlet-name>
+        <servlet-class>controle.alteraJournal</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>efetuarCadastro</servlet-name>
         <url-pattern>/src/efetuarCadastro</url-pattern>
@@ -160,12 +168,10 @@
         <servlet-name>buscaEdicao</servlet-name>
         <url-pattern>/src/buscaEdicao</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>esqueceuSenha</servlet-name>
         <url-pattern>/src/esqueceuSenha</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>buscaVolume</servlet-name>
         <url-pattern>/src/buscaVolume</url-pattern>
@@ -205,6 +211,14 @@
     <servlet-mapping>
         <servlet-name>buscaAvancada4</servlet-name>
         <url-pattern>/src/buscaAvancada4</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cadastrarJournal</servlet-name>
+        <url-pattern>/src/cadastrarJournal</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>alteraJournal</servlet-name>
+        <url-pattern>/src/alteraJournal</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

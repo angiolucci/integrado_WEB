@@ -35,6 +35,7 @@
                 <p><span class="text-left"><label for="isoabreviation">ISO Abreviação <span id="erroiso" class="text-error"></span></label></span><span><input type="text" id="isoabreviation"></span></p>
                 <p><span class="text-left"><label for="title">Título <span id="errotitulo" class="text-error"></span></label></span><span><input type="text" id="title"></span></p>
                 <p><input type="submit" id="cadastrar" value="Cadastrar !" class="btn"></p>
+                 <p id="cad"></p>
             </fieldset>
         </form>
       </article>
@@ -50,7 +51,16 @@
               
             /*monitora a ação de clicar*/
             $('#cadastrar').click(function(){
-                window.alert('Cadastro efetuado com sucesso!');
+              
+              $.ajax({
+                    type: "POST",
+                    url: "cadastrarJournal",
+                    dataType: "html",                     
+                    data:{issn: $("#issn").val(), iso: $("#isoabreviation").val(), title: $("#title").val() }
+                    }).done(function(data){                        
+                        $("#cad").html(data);   
+                        
+                    });
             });
             
             
