@@ -51,7 +51,7 @@
                  <li class="dropdown">
                      <a data-toggle="dropdown" class="dropdown-toggle" href="#">Publicações <strong class="caret"></strong></a>
                      <ul class="dropdown-menu">
-                         <li>    <a href="journal.jsp">Incuir Publicação</a> </li>
+                         <li>    <a href="journal.jsp">Incluir Publicação</a> </li>
 						 <li>    <a href="alterJournal.jsp">Alterar Publicação </a> </li>
 						 <li>    <a href="searchJournal.jsp">Consultar Publicação</a>   </li>
 						 <li>    <a href="deleteJournal.jsp">Remover Publicação</a>   </li>						 
