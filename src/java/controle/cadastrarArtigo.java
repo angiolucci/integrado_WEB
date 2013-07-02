@@ -20,6 +20,7 @@ import model.JournalIssue;
 import model.PubMedArticle;
 import model.SystemUser;
 import persistence.DAOException;
+import persistence.DAOKeyword;
 import persistence.DAOPubMedArticle;
 
 /**
@@ -114,9 +115,16 @@ public class cadastrarArtigo extends HttpServlet {
             Logger.getLogger(cadastrarArtigo.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        String lastname = request.getParameter("lastname");
-        String forename = request.getParameter("forename");
-        String initials = "-";
+        String autorList = (String)request.getParameter("at");
+        String kwList = (String) request.getParameter("kw");
+        
+        String autores[] = autorList.split(";");
+        String palavras[] = kwList.split(";");
+        
+        DAOKeyword dkw = new DAOKeyword();
+        for(String i : palavras){
+            dkw.insere(i, Integer.parseInt(articleID));
+        }
         
         
         

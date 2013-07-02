@@ -175,7 +175,9 @@
                             pend: $('#pagend').val(),
                             aff: $('#affiliation').val(),
                             ps: $('#publicationstatus').val(),
-                            pt: $('#pubtype').val() }
+                            pt: $('#pubtype').val(),
+                            kw: $('#listaKW').val(),
+                            at: $('#listaAuthor').val()}
                    });                
                     window.alert('Cadastro efetuado com sucesso!');                     
                 }else
