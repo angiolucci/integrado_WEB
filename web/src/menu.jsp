@@ -31,7 +31,7 @@
                          <li>    <a href="registerArticle.jsp">Incuir</a> </li>
                          <li>    <a href="alterArticle.jsp">Alterar</a>   </li>
                          <li>    <a href="searchArticle.jsp">Remover</a>   </li>
-                         <li>    <a href="deleteRegisterArticle.jsp">consultar</a>   </li>                                   
+                         <li>    <a href="deleteRegisterArticle.jsp">Consultar</a>   </li>                                   
                      </ul>
                  </li>
             <% } %>
@@ -44,7 +44,7 @@
                          <li>    <a href="meshHeading.jsp">Incuir</a> </li>
                          <li>    <a href="alterMeshHeading.jsp">Alterar</a>   </li>
                          <li>    <a href="deleteMeshHeading.jsp">Remover</a>   </li>
-                         <li>    <a href="searchMeshHeading.jsp">consultar</a>   </li>                                   
+                         <li>    <a href="searchMeshHeading.jsp">Consultar</a>   </li>                                   
                      </ul>
                  </li>
 								 

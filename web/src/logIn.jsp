@@ -29,13 +29,13 @@
           <form autocomplete="on" class="span4" action="controleLogin" method="POST">
             <fieldset>
                 <legend>
-                    Log In
+                    Bem vindo
                 </legend>
                 
                 <div class="control-group">
-                    <label class="control-label" for="inputEmail">Login</label>
+                    <label class="control-label" for="inputEmail">Nome de usuário</label>
                     <div class="controls">
-                        <input type="text" id="inputEmail" name="login" placeholder="Nome de usuário"/>
+                        <input type="text" id="inputEmail" name="login" placeholder="username"/>
                     </div>
                 </div>
             

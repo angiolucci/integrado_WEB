@@ -26,10 +26,18 @@
                 <div class="span4">
                 </div>
                 <form autocomplete="on" class="span4" id="myform" action="efetuarCadastro" method="post">
-                    <p><span class="text-left"><label for="username">Nome de usuario <span id="errousername" class="text-error"></span></label></span><span class="text-left"><input type="text" id="username" name="username"></span></p>
-                    <p><span class="text-left"><label for="email">E-mail <span id="erroemail" class="text-error"></span></label></span><span class="text-left"><input type="email" id="email" name="email"></span></p>
-                    <p><span class="text-left"><label for="pwd">Senha <span id="errosenha" class="text-error"></span></label></span><span class="text-left"><input type="password" id="pwd" name="pwd"></span></p>
-                    <p><span class="text-left"><label for="conf-pwd">Confirmar senha <span id="erroconf-pwd" class="text-error"></span></label></span><span class="text-left"><input type="password" id="conf-pwd" name="password"></span></p>
+                    <fieldset>
+                        <legend>
+                            Crie uma conta
+                        </legend>
+                    <p><span class="text-left">
+                            <label for="username">Nome de usuario <span id="errousername" class="text-error"></span></label></span><span class="text-left"><input type="text" id="username" name="username" placeholder="username"></span></p>
+                    <p><span class="text-left">
+                            <label for="email">E-mail <span id="erroemail" class="text-error"></span></label></span><span class="text-left"><input type="email" id="email" name="email" placeholder ="nome@example.com"></span></p>
+                    <p><span class="text-left">
+                            <label for="pwd">Senha <span id="errosenha" class="text-error"></span></label></span><span class="text-left"><input type="password" id="pwd" name="pwd" placeholder="Digite uma senha"></span></p>
+                    <p><span class="text-left">
+                            <label for="conf-pwd">Confirmar senha <span id="erroconf-pwd" class="text-error"></span></label></span><span class="text-left"><input type="password" id="conf-pwd" name="password" placeholder="Redigite sua senha"></span></p>
                     <!--
                               <p><span class="text-left"><label for="dt-nto">Data de nascimento <span id="errodt-nto" class="text-error"></span></label></span><span class="text-left"><input type="date" id="dt-nto" name ="date"></span></p>
                               <p><span class="text-left"><label for="masc">Sexo</label></span><span class="text-left">
@@ -75,7 +83,8 @@
                               <p><span class="text-left"><label for="telefone">Telefone <span id="errotel" class="text-error"></span></label></span><span class="text-left"><input type="tel" id="telefone" name="telefone"></span></p>
                     <!--<p><span id="desc-erro" class="rotulo"></span><span id="erro" class="campo"></span></p>-->
 
-                    <p><input class="btn" type="submit" id="cadastrar" value="Cadastrar!" name="cadastrar"></p>
+                    <p><button class="btn" type="submit" id="btnCad" name="btnCad">Cadastrar</button></p>
+                    </fieldset>
                 </form>
             </article>
         </section>
@@ -88,21 +97,24 @@
             $(document).ready(function() {
 
                 /*monitora a ação de clicar*/
-                $('#cadastrar').click(function() {
-                    var senha1 = trim($('#pwd').val());
-                    var senha2 = trim($('#conf-pwd').val());
-                    var email = trim($('#'));
+                $("#btnCad").click(function() {
+                   
+                     var senha1 = trim($('#pwd').val());
+                     var senha2 = trim($('#conf-pwd').val());
+                     var login = trim($('#username').val);
+                     var email = trim($('#email').val);
 
-                    if (senha1 != senha2) {
-                        window.alert('Senhas não conferem');
+                    if ((senha1 === '') || (senha2 === '') || (login === '') || (email === '') ){
+                        window.alert("Existem campos não preenchidos");
                     } else {
-                        if (senha1 == '')
-                            window.alert('Você deve informar uma senha');
-                        else {
-                            $('#myform').submit();
-                            window.alert('Cadastro efetuado com sucesso!');
+                        if (($('#errosenha').val === '') && ($('#erroconf-pwd').val === '') &&
+                            ($('#errousername').val === '') && ($('#erroemail').val === '' )) {
+                            $('#form').submit();                            
+                        } else {
+                            window.alert("Por favor, preencha corretamente todos os campos");
                         }
                     }
+
                 });
 
 
@@ -126,14 +138,26 @@
                     }
                 });
 
-                $('#conf-pwd').focusout(function() {
-                    if (pwd.value === conf - pwd.value) {
-                        $('#erroconf-pwd').fadeIn('slow', function() {
+                $('#pwd').focusout(function() {
+                    if (trim(pwd.value) === '') {
+                        $('#errosenha').fadeIn('slow', function() {
+                            $(this).html('Digite uma senha válida');
+                        });
+                    } else {
+                        $('#errosenha').fadeOut(1000, function() {
                             $(this).html('');
+                        });
+                    }
+                });
+                
+                $('#conf-pwd').focusout(function() {
+                    if (!($('#pwd').val === $('#conf-pwd').value)) {
+                        $('#erroconf-pwd').fadeIn('slow', function() {
+                            $(this).html('Senhas não conferem');
                         });
                     } else {
                         $('#erroconf-pwd').fadeOut(1000, function() {
-                            $(this).html('Senhas não conferem');
+                            $(this).html('');
                         });
                     }
                 });
@@ -144,17 +168,11 @@
 
                     /*O método exec pertence a classe Regex e valida a string passada como parâmetro 
                      *para o método, retornando um vetor com as strings ou null quando não encontra nada */
-                    if (filtro.exec($('#username').val()) === null && $('#username').val()) {
-                        $('#desc-erro').fadeIn(1000, function() {
-                            $(this).html('Erro e-mail:');
-                        });
+                    if (filtro.exec($('#username').val()) === null || trim($('#username').val()) === '') {
                         $('#errousername').fadeIn('slow', function() {
-                            $(this).html('Não use caracteres especiais.');
+                            $(this).html('Nome de usuário inválido.');
                         });
                     } else {
-                        $('#desc-erro').fadeOut(1000, function() {
-                            $(this).html('');
-                        });
                         $('#errousername').fadeOut(1000, function() {
                             $(this).html('');
                         });
@@ -170,7 +188,7 @@
                             $(this).html('Erro Telefone:');
                         });
                         $('#errotel').fadeIn('slow', function() {
-                            $(this).html('informe um telefone válido.');
+                            $(this).html('Informe um telefone válido.');
                         });
                     } else {
                         $('#desc-erro').fadeOut(1000, function() {
@@ -187,17 +205,11 @@
 
                     /*O método exec pertence a classe Regex e valida a string passada como parâmetro 
                      *para o método, retornando um vetor com as strings ou null quando não encontra nada */
-                    if (filtro.exec($('#email').val()) === null && $('#email').val()) {
-                        $('#desc-erro').fadeIn(1000, function() {
-                            $(this).html('Erro e-mail:');
-                        });
+                    if (filtro.exec($('#email').val()) === null || trim($('#username').val()) === '') {
                         $('#erroemail').fadeIn('slow', function() {
-                            $(this).html('informe e-mail válido.');
+                            $(this).html('Informe um e-mail válido');
                         });
                     } else {
-                        $('#desc-erro').fadeOut(1000, function() {
-                            $(this).html('');
-                        });
                         $('#erroemail').fadeOut(1000, function() {
                             $(this).html('');
                         });
