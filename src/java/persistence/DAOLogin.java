@@ -34,7 +34,7 @@ public class DAOLogin {
             ps.setString(2, user.getShadow());
             ps.setString(3, user.getEmail());
             
-            ps.executeQuery();
+            ps.executeUpdate();
             conn.close();
             
        } catch(Exception ex){
