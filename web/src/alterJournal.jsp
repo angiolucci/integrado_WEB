@@ -30,23 +30,17 @@
           <legend>  Alteração da Revista  </legend>
           
           <form class="form-search">                             
-                <button type="submit" class="btn">Buscar Título</button> <input type="text" class="input-medium search-query">                              
+                <button type="submit" class="btn" id="procura">Buscar Título</button> <input type="text"  id="tit"class="input-medium search-query">                              
           </form>
+          
           <form autocomplete="on" class="span4" id="myform">
-              
-                <fieldset>
+              <fieldset>
                     <legend>  Revista  </legend>  
                 </fieldset>
-              <fieldset>
-                <p><span class="text-left"><label for="isoabreviation"> Abreviação ISO <span class="text-error" id="isoabreviation"></span> </label><input type="text" id="isoabreviation"></span></p>
-                <p><span class="text-left"><label for="issn"> ISSN <span class="text-error" id="erroissn"></span> </label></span>    <span><input type="text" id="issn"></span></p>
-                <p><span class="text-left"><label for="title"> Title <span class="text-error" id="errotitle"></span> </label></span><span><input type="text" id="title"></span></p>
+          <table id ="tabel">
                 
-                <!--<p><span class="text-error"></span><span class="text-error" id="desc-erro"></span><span id="erro"></span></p>-->
-                
-                <p><input type="button" id="editar" value="Editar" class="btn"> <input type="submit" id="salvar" value="Salvar" class="btn"> </p>            
-              </fieldset>
               
+          </table>
           </form>
       </fieldset>
       </article>
@@ -56,7 +50,23 @@
       <script>
           
           $(document).ready(function(){
-              
+              $('#procura').click(function(){
+             $.ajax({
+                    type: "POST",
+                    url: "alteraJournal",
+                    dataType: "html",                     
+                    data:{titulo: $("#tit").val() }
+                    }).done(function(data){                        
+                        $("#tabel").html(data);   
+                    });
+              });
+        
+        
+        
+        
+        
+        
+        
             
          });
       </script>

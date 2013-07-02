@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Journal;
+import model.MeshHeading;
 
 
 /**
@@ -49,6 +50,43 @@ public class DAOJournal {
         return listaJournal;
     
     }
+    
+    public Journal consultaJournalAbsoluta(String journ) throws SQLException{
+        PreparedStatement ps;
+        
+        /*Consulta parametrizada por uma procedure*/
+        ps = conn.prepareStatement("EXEC usp_buscajournal ?");
+        ps.setString(1, journ);        
+        ResultSet rs;        
+        
+        /*Consulta sem a procedure*/
+        /*String sql = "SELECT * FROM JOURNAL WHERE JOURNAL.TITLE LIKE '"+journ+"%'";
+        ps = conn.prepareStatement(sql);*/
+        rs = ps.executeQuery();                
+        Journal j = new Journal(); 
+        if(rs.next()){
+                       
+            j.setTitle(rs.getString("TITLE"));
+            j.setIssn(rs.getString("ISSN"));
+            j.setIsoAbreviation(rs.getString("ISOABREVIATION"));            
+        }
+        
+        return j;
+    
+    }
+    
+    
+    
+    public int inserirJournal(String issn, String iso, String title) throws SQLException{
+        PreparedStatement ps;
+                
+        ps = conn.prepareStatement("EXEC usp_addjournal ?,?,?");                        
+        ps.setString(1, issn);        
+        ps.setString(2, iso);
+        ps.setString(3, title);
+        return ps.executeUpdate();
+    }
+
     
     
 }
