@@ -24,6 +24,11 @@ public class PubMedArticle {
     private String publicationStatus;
     private String title;
     private Integer pagBegin;
+
+    public void setPagEnd(Integer pagEnd) {
+        this.pagEnd = pagEnd;
+    }
+    private Integer pagEnd;
     private Integer numberOfPages;
     private LinkedList<PubType> pTypes;
     private LinkedList<Author>  authors;
@@ -31,7 +36,15 @@ public class PubMedArticle {
     private JournalIssue journalIssue;
     private LinkedList<KeyWord> keywords;
     private LinkedList<MeshHeading> meshTerms;
+    private String user;
+    public String getUser() {
+        return user;
+    }
 
+    public void setUser(String user) {
+        this.user = user;
+    }
+ 
     public Journal getJournal() {
         return journal;
     }
@@ -119,7 +132,7 @@ public class PubMedArticle {
      * @return the pagEnd
      */
     public Integer getPagEnd() {
-        return (this.numberOfPages + this.pagBegin) - 1;
+        return this.pagEnd;
     }
 
 

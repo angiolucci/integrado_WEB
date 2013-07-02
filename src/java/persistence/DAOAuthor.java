@@ -8,6 +8,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,22 +54,13 @@ public List<Author> consultaAuthor(int articleId){
 }
     
     
-     public int inserir_author(Author a ){
-    
-    try{
-        
-            sqlStm = conn.createStatement();
-            
+public int inserir_author(Author a ) throws SQLException{            
             PreparedStatement cs = conn.prepareStatement("EXEC usp_addAutor ?,?,?");
             cs.setString(1, a.getForename());
             cs.setString(1, a.getLastname());
             cs.setString(1, a.getInitials());
-        
-            }catch(Exception ex){
-        
-             }
     
-    return 
+    return cs.executeUpdate();
 
 }    
     

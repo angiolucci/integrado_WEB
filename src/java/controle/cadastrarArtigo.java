@@ -15,6 +15,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Journal;
+import model.JournalIssue;
+import model.PubMedArticle;
+import model.SystemUser;
+import persistence.DAOException;
+import persistence.DAOPubMedArticle;
 
 /**
  *
@@ -67,33 +73,58 @@ public class cadastrarArtigo extends HttpServlet {
             throws ServletException, IOException {
         
         request.setCharacterEncoding("UTF-8");
-        Statement st;  
         
         String articleID = request.getParameter("articleID");
-
-        String lastname = request.getParameter("lastname");
-        String forename = request.getParameter("forename");
-        String initials = "-";
-        
-        String issn = request.getParameter("issn");    
-        String issue = request.getParameter("issue");
-        String volume = request.getParameter("volume");
-        
+        String title = request.getParameter("title");
+        String pagBegin = request.getParameter("pbeg");
+        String pagEnd = request.getParameter("pend");
         String affiliation = request.getParameter("aff");
         String pubstatus = request.getParameter("ps");         
         String pubtype = request.getParameter("pt");
         
-        String title = request.getParameter("title");
-        String pagBegin = request.getParameter("pbeg");
-        String pagEnd = request.getParameter("pend"); 
-        Integer ipt;
-        String pagTotal;
+        PubMedArticle pubmed = new PubMedArticle();
+        pubmed.setArticleID(Integer.parseInt(articleID));
+        pubmed.setPagBegin(Integer.parseInt(pagBegin));
+        pubmed.setPagEnd(Integer.parseInt(pagEnd));
+        pubmed.setTitle(title);
+        pubmed.setAffliation(affiliation);
+        pubmed.setPublicationStatus(pubstatus);
+        SystemUser user = (SystemUser) request.getSession().getAttribute("user");
+        pubmed.setUser(user.getLogin());
+        String issn = request.getParameter("issn");    
+        String issue = request.getParameter("issue");
+        String volume = request.getParameter("volume");
+        JournalIssue jissue = new JournalIssue();
+        jissue.setIssue(Integer.parseInt(issue));
+        jissue.setVolume(Integer.parseInt(volume));
+        Journal journal = new Journal();
+        journal.setIssn(issn);
+        jissue.setJournal(journal);
+        pubmed.setJournalIssue(jissue);
+        
+        
+        
+        
         try {
-            ipt = (Integer.parseInt(pagEnd) - Integer.parseInt(pagBegin) + 1);
-        }catch(NumberFormatException ex){
-            ipt = 1;
+        DAOPubMedArticle daoArtigo = new DAOPubMedArticle();
+        daoArtigo.inserirArtigo(pubmed);
+        } catch (SQLException ex) {
+            Logger.getLogger(cadastrarArtigo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DAOException ex) {
+            Logger.getLogger(cadastrarArtigo.class.getName()).log(Level.SEVERE, null, ex);
         }
-        pagTotal = ipt.toString();
+        
+        String lastname = request.getParameter("lastname");
+        String forename = request.getParameter("forename");
+        String initials = "-";
+        
+        
+        
+        /*
+        
+        
+        
+        
         
          try {
             st = new Injector().getConnection().createStatement();
@@ -106,18 +137,7 @@ public class cadastrarArtigo extends HttpServlet {
             Logger.getLogger(buscaPtype.class.getName()).log(Level.SEVERE, null, ex);
         }
          
-        try {
-            st = new Injector().getConnection().createStatement();
-            String consulta = "INSERT INTO PUBMEDARTICLE VALUES (" + articleID + "," +
-                              issue + ",'" + issn + "'," + volume + ",'" + affiliation +
-                              "','" + pubstatus + "','" + title + "'," + pagBegin + "," +
-                              pagEnd + "," + pagTotal + ")";
-         st.executeQuery(consulta);
-         st.close();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(buscaPtype.class.getName()).log(Level.SEVERE, null, ex);
-        }
+      
         
          try {
             st = new Injector().getConnection().createStatement();
@@ -142,7 +162,7 @@ public class cadastrarArtigo extends HttpServlet {
              System.out.println(consultaPubType);
             Logger.getLogger(cadastrarArtigo.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+*/
     }
 
     /**

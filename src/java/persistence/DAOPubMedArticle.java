@@ -27,67 +27,25 @@ public class DAOPubMedArticle {
       String titulo;
 
     public DAOPubMedArticle() throws DAOException{
-        this.conn = ConnectionFactory.getConnection(50);    
+        this.conn = ConnectionFactory.getConnection();    
     }
-      
-      
       
        
-public void inserirArtigo(String articleID,String lastname,String forename,
-        String initials,String issn,String issue,String volume, String affiliation,
-        String pubstatus, String pubtype, String title, String pagBegin, String pagEnd,
-        Integer ipt,String pagTotal){
-    
-   
-    
-    
-   
-    try{
-            conn = ConnectionFactory.getConnection();
-            sqlStm = conn.createStatement();
-            
-            PreparedStatement cs = conn.prepareStatement("EXEC usp_insereArticle ?,?,?,?,?,?,?,?");
-            cs.setString(1, );
-            cs.setString(1, articleid);
-            cs.setString(1, issuejorn);
-            cs.setString(1, issnjourn);
-            cs.setString(1, volume);
-            cs.setString(1, affiliation);
+public int inserirArtigo(PubMedArticle pub) throws SQLException{
+           
+            PreparedStatement cs = conn.prepareStatement("EXEC usp_addPubmedArticle ?,?,?,?,?,?,?,?,?,? ");
+            cs.setString(1, pub.getArticleID().toString());
+            cs.setString(2, pub.getJournalIssue().getIssue().toString());
+            cs.setString(3, pub.getJournalIssue().getJournal().getIssn());
+            cs.setString(4, pub.getJournalIssue().getVolume().toString());
+            cs.setString(5, pub.getAffliation());
+            cs.setString(6, pub.getPublicationStatus());
+            cs.setString(7, pub.getTitle());
+            cs.setString(8, pub.getPagBegin().toString());
+            cs.setString(9, pub.getPagEnd().toString());
+            cs.setString(10, pub.getUser());
+    return cs.executeUpdate();     
 
-            cs.setString(1, pbstatus);
-            cs.setString(1, titulo);
-            cs.setString(1, pag_begin);
-            cs.setString(1, pag_end);
-            cs.setString(1, user);
-             
-            
-            cs.setInt(1, 1);
-
-        
-        
-    }catch(Exception ex){
-        
-    }
-
-    
-    try{
-            
-            sqlStm = conn.createStatement();
-            
-            PreparedStatement cs = conn.prepareStatement("EXEC usp_insereArticle ?,?,?,?,?,?,?,?");
-            cs.setString(1, titulo);
-            cs.setString(1, titulo);
-            cs.setString(1, titulo);
-            cs.setInt(1, 1);
-
-        
-        
-    }catch(Exception ex){
-        
-    }
-
-    
-    
     
 }        
       

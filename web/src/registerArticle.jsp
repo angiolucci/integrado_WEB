@@ -135,7 +135,7 @@
              
             $.ajax({
                 type: "POST",
-                url: "../buscaRevista",
+                url: "buscaRevista",
                 dataType: "html"
              }).done(function(data){
                 $('#titlejournal').html(data);
@@ -143,7 +143,7 @@
              
               $.ajax({
                 type: "POST",
-                url: "../buscaPtype",
+                url: "buscaPtype",
                 dataType: "html"
              }).done(function(data){
                 $('#tipopublicacao').html(data);
@@ -157,7 +157,7 @@
                     (($('#errotitle').val()) === '') && (($('#errobegin').val()) === '') && (($('#erroend').val()) === '') ){
                     $.ajax({
                       type: "POST",
-                      url: "../cadastrarArtigo",
+                      url: "cadastrarArtigo",
                       dataType: "html",
                       data: {articleID: $('#articleid').val(),
                             lastname: $('#middlename').val(),
@@ -462,7 +462,7 @@
             $('#titlejournal').change(function(){
               $.ajax({
                 type: "POST",
-                url: "../buscaEdicao",
+                url: "buscaEdicao",
                 dataType: "html",
                 data: {issn: $('#titlejournal').val() }
              }).done(function(data){
@@ -473,7 +473,7 @@
             $('#journalissue').change(function(){
               $.ajax({
                 type: "POST",
-                url: "../buscaVolume",
+                url: "buscaVolume",
                 dataType: "html",
                 data: {issn: $('#titlejournal').val(), issue: $('#journalissue').val() }
              }).done(function(data){
