@@ -8,5 +8,6 @@ Authors:
 Marcos Cavalcante,
 Renato Poulicer,
 Nahim Alves de Souza,
-Guilherme Alonso,
-Vinícius Angiolucci Reis.
+Vinícius Angiolucci Reis,
+Guilherme Alonso.
+
